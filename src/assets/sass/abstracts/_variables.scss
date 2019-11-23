@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$font-stack: 'Comfortaa', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+$color-background: hsla(0, 0%, 13%, 0.62) !default;
+
+$color-primary: hsl(0, 0%, 92.9%) !default;
+
+$color-input: hsl(220, 4%, 57%) !default;
+
+$color-secondary: hsl(223, 22%, 16%) !default;
+
+$color-brand: hsl(41.6, 56.3%, 70.4%) !default;
+
+$color-error: hsla(0, 85%, 46%, 0.361);
+
+$width-max: 1280px !default;

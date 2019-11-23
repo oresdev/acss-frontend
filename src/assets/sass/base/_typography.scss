@@ -1,0 +1,55 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+   font: normal 11pt / 150% $font-stack;
+
+   @include breakpoints(phone) {
+      font: normal 9.2pt / 150% $font-stack;
+   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   @include breakpoints(tablet) {
+      font-size: calc(10.1pt + 3.09375vw) !important;
+   }
+
+   font-weight: 100;
+
+   margin: 0;
+   text-transform: uppercase;
+}
+
+h1 {
+   font-size: 36pt;
+}
+
+h2 {
+   font-size: 30pt;
+}
+
+h3 {
+   font-size: 26pt;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+b {
+   font-weight: bold;
+}
+
+p {
+   font-weight: lighter;
+}
+
+span {
+   color: inherit;
+}

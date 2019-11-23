@@ -1,0 +1,153 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+header {
+   nav {
+      @include relative();
+      ul {
+         padding: 0;
+
+         li {
+            cursor: pointer;
+         }
+      }
+   }
+
+   .nav {
+      @include flex(row, center, flex-start, wrap);
+      margin: 1rem 0 0 0;
+
+      &__brand {
+         margin: 0 auto 0 0;
+
+         li {
+            padding: 0 0 0 72px;
+
+            &::before {
+               content: '';
+
+               background-image: url('~@/assets/logo.svg');
+               background-repeat: no-repeat;
+               background-size: contain;
+
+               height: 56px;
+
+               @include absolute(left 0);
+
+               width: 56px;
+            }
+         }
+
+         small {
+            display: block;
+
+            font-size: 8.2pt;
+            line-height: 123%;
+
+            max-width: 150px;
+         }
+      }
+
+      &__burger {
+         display: none;
+
+         @include breakpoints(tablet) {
+            display: initial;
+         }
+         cursor: pointer;
+         opacity: 0.8;
+
+         li {
+            background-color: $color-primary;
+            height: 2px;
+            margin: 6px 0;
+            width: 32px;
+         }
+         &:hover {
+            opacity: 1;
+         }
+      }
+
+      &__list {
+         @include flex(row, baseline, flex-start, wrap);
+
+         @include breakpoints(tablet) {
+            display: none;
+            margin: 1rem 0 0 0;
+
+            &--open {
+               @include flex(column, baseline, flex-start, wrap);
+               width: 100%;
+               li {
+                  margin: 1em 0 0 0 !important;
+
+                  &:first-child {
+                     margin: 0 !important;
+                  }
+               }
+            }
+         }
+
+         li {
+            margin: 0 2em 0 0;
+            &:hover {
+               opacity: 0.8;
+               box-shadow: 0 2px 0 $color-brand;
+            }
+         }
+      }
+
+      &__sub {
+         @include breakpoints(tablet) {
+            display: none;
+            margin: 1rem 0 1rem 0;
+
+            &--open {
+               @include flex(column, baseline, flex-start, wrap);
+               width: 100%;
+               ul {
+                  position: relative !important;
+               }
+            }
+         }
+         li {
+            text-transform: capitalize;
+            &:hover {
+               box-shadow: 0 2px 0 $color-brand;
+            }
+         }
+         ul {
+            @include absolute();
+            li {
+               margin: 0.6em 0 0 0;
+            }
+         }
+      }
+
+      &__link {
+         @include breakpoints(tablet) {
+            display: none;
+
+            &--open {
+               @include flex(column, baseline, flex-start, wrap);
+               width: 100%;
+               li {
+                  margin: 1em 0 0 0 !important;
+
+                  &:first-child {
+                     margin: 0 !important;
+                  }
+               }
+            }
+         }
+
+         li {
+            margin: 0 0 0 2em !important;
+            &:hover {
+               opacity: 0.8;
+               box-shadow: 0 2px 0 $color-brand;
+            }
+         }
+      }
+   }
+}
