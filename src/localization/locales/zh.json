@@ -19,7 +19,8 @@
       },
       "link": {
          "logout": "退出",
-         "signup": "注册"
+         "signup": "注册",
+         "signin": "登入"
       }
    },
    "signin": {
