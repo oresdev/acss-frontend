@@ -9,11 +9,10 @@ import VueQrcode from '@chenfengyuan/vue-qrcode'
 
 Vue.component(VueQrcode.name, VueQrcode)
 
-// https://kazupon.github.io/vue-i18n/
-import i18n from './localization'
-
 // https://github.com/probil/v-mask
 import { VueMaskDirective } from 'v-mask'
+
+import i18n from './i18n'
 
 Vue.directive('mask', VueMaskDirective)
 
