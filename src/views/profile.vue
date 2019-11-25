@@ -303,7 +303,7 @@
                      <input
                         class="profile-form__input"
                         type="text"
-                        v-mask="'################'"
+                        v-mask="'##################'"
                         v-model="doc_pid_number"
                         :placeholder="[
                            [$t('profile.passport.form.pid-number')],
@@ -316,7 +316,7 @@
                      <input
                         class="profile-form__input"
                         type="text"
-                        v-mask="'################'"
+                        v-mask="'##################'"
                         v-model="doc_poa_number"
                         :placeholder="[
                            [$t('profile.passport.form.poa-number')],

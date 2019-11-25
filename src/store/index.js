@@ -77,8 +77,8 @@ export default new Vuex.Store({
                .catch(err => {
                   commit('auth_error')
 
-                  localStorage.removeItem('authentication_token')
-                  localStorage.removeItem('user_email')
+                  // localStorage.removeItem('authentication_token')
+                  // localStorage.removeItem('user_email')
 
                   reject(err)
                })
@@ -108,8 +108,8 @@ export default new Vuex.Store({
                .catch(err => {
                   commit('auth_error', err)
 
-                  localStorage.removeItem('authentication_token')
-                  localStorage.removeItem('user_email')
+                  // localStorage.removeItem('authentication_token')
+                  // localStorage.removeItem('user_email')
 
                   reject(err)
                })
@@ -131,8 +131,8 @@ export default new Vuex.Store({
                method: 'POST',
             })
                .then(resp => {
-                  localStorage.removeItem('authentication_token')
-                  localStorage.removeItem('user_email')
+                  // localStorage.removeItem('authentication_token')
+                  // localStorage.removeItem('user_email')
 
                   commit('logout')
 
@@ -173,8 +173,8 @@ export default new Vuex.Store({
                .catch(err => {
                   commit('sending_error', err)
 
-                  localStorage.removeItem('authentication_token')
-                  localStorage.removeItem('user_email')
+                  // localStorage.removeItem('authentication_token')
+                  // localStorage.removeItem('user_email')
 
                   reject(err)
                })
@@ -215,8 +215,8 @@ export default new Vuex.Store({
                .catch(err => {
                   commit('auth_error', err)
 
-                  localStorage.removeItem('authentication_token')
-                  localStorage.removeItem('user_email')
+                  // localStorage.removeItem('authentication_token')
+                  // localStorage.removeItem('user_email')
 
                   reject(err)
                })
@@ -246,8 +246,8 @@ export default new Vuex.Store({
                .catch(err => {
                   commit('auth_error', err)
 
-                  localStorage.removeItem('authentication_token')
-                  localStorage.removeItem('user_email')
+                  // localStorage.removeItem('authentication_token')
+                  // localStorage.removeItem('user_email')
 
                   reject(err)
                })
@@ -279,8 +279,8 @@ export default new Vuex.Store({
                .catch(err => {
                   commit('auth_error', err)
 
-                  localStorage.removeItem('authentication_token')
-                  localStorage.removeItem('user_email')
+                  // localStorage.removeItem('authentication_token')
+                  // localStorage.removeItem('user_email')
 
                   reject(err)
                })
