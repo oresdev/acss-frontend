@@ -1,0 +1,93 @@
+.form {
+    display: grid;
+    grid-gap: 1em;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    margin: 2em 0;
+
+    &__row {
+        margin: 1em 0;
+    }
+
+    &__col {
+        background-color: hsla(222, 25%, 10%, 0.4);
+        margin: 1em 0;
+        padding: 4em 2em;
+        display: grid;
+        grid-gap: 1em;
+        grid-auto-columns: 1fr;
+        grid-template-rows: 1fr;
+        @include breakpoints(phone) {
+            padding: 4em 1em;
+        }
+
+        &--2 {
+            grid-template-areas: '__i __i';
+
+            @include breakpoints(tablet) {
+                grid-template-areas: '__i';
+            }
+        }
+        &--3 {
+            grid-template-areas: '__i __i __i';
+
+            @include breakpoints(tablet) {
+                grid-template-areas: '__i __i';
+            }
+            @include breakpoints(phone) {
+                grid-template-areas: '__i';
+            }
+        }
+        &--4 {
+            grid-template-areas: '__i __i __i __i';
+
+            @include breakpoints(tablet) {
+                grid-template-areas: '__i __i';
+            }
+            @include breakpoints(phone) {
+                grid-template-areas: '__i';
+            }
+        }
+
+        label {
+            font-size: 14px;
+            margin: 0.6em 0;
+        }
+        input {
+            background-color: transparent;
+
+            border-bottom: 2px solid $color-brand;
+            color: $color-input;
+            display: block;
+            font-size: 15px;
+            padding: 0.4rem 0;
+            width: 80%;
+            @include breakpoints(phone) {
+                width: 100%;
+            }
+        }
+        input[type='file'] {
+            border: none;
+        }
+    }
+    button {
+        background-color: $color-brand;
+
+        color: $color-secondary;
+
+        margin: 1rem 1rem 1rem 0;
+        padding: 0.8rem 2rem;
+        max-width: 140px;
+
+        &:disabled {
+            cursor: default;
+
+            opacity: 0.1 !important;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

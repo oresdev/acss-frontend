@@ -1,173 +1,182 @@
 {
-   "header": {
-      "description": "Automatic Cross-Chain Settlement System",
-      "nav": {
-         "list": [
-            {
-               "title": "My account",
-               "link": "account"
-            },
-            {
-               "title": "KYC",
-               "link": "profile"
-            },
-            {
-               "title": "Settings",
-               "link": "settings"
-            }
-         ]
-      },
-      "link": {
-         "logout": "Log Out",
-         "signup": "Sign Up",
-         "signin": "Sign In"
-      }
-   },
-   "signin": {
-      "title": "Authorization",
-      "description": "Welcome to the authorization page. To protect your data, do not transfer information to third parties and do not tell anyone your password from your personal account",
-      "form": {
-         "email": "Enter your email address",
-         "password": "Enter your password",
-         "submit": "Continue"
-      }
-   },
-   "signup": {
-      "title": "Registration",
-      "description": "Each field is required. Carefully fill out the form fields. After checking the data, you will be able to log in to your personal account. In order to protect your data, do not transfer information to third parties and do not tell anyone your personal account password",
-      "form": {
-         "email": "Enter your email address.mails",
-         "password": "Enter your password",
-         "password-confirm": "Re-enter your password",
-         "submit": "Continue"
-      }
-   },
-   "account": {
-      "title": "My account",
-      "description": "Welcome to your account. The ACSS project is an easy crypto tool with the lowest fees, providing you with completely secure transactions. It's internal structure makes you possible to create different social and financial institutions, and manage them with their own decentralized registry.",
-      "details": "The available deposit limit is the amount of savings that you can safely store and use in your account. The safe Deposit limit is set by the Bank depending on the number of deposits and withdrawals of cash, depending on the customer's need for constant use of funds.",
-      "balance": "Balance",
-      "card-number": "Card",
-      "generate": "Show",
-      "limit": "Available deposit limit",
-      "pin": "Show Pin",
-      "top-up": "Deposit",
-      "transactions": "Transactions list",
-      "comming": "In process"
-   },
-   "transactions": {
-      "title": "Remittances",
-      "description": "Card Operations",
-      "amount": "Amount",
-      "payment": "Merchant",
-      "period": "Date and time"
-   },
-   "profile": {
-      "title": "KYC",
-      "terms": {
-         "title": "Conditions",
-         "d1": "I consent to the processing of all my personal data specified in the application by any means, including third parties, including reproduction, electronic copying, depersonalization, blocking, destruction, as well as the above-mentioned processing of other my personal data obtained as a result of their processing, for the purpose of:",
-         "d2": "I give my consent to the Bank's counterparties to process all my personal data available to the Bank and / or the Bank's counterparties, including for the purpose of informing me about the services of counterparties, as well as to process information about subscribers and communication services provided by them (if the Bank's counterparty is a communication operator) in order to assess the likelihood of my solvency in the future to make a decision on the issuance of a credit card.",
-         "d3": "This consent is given for a period of 15 years, and in case of its withdrawal, the processing of my personal data must be terminated by the Bank and / or third parties and the data destroyed, subject to termination of the Contract and full repayment of the debt under the Contract no later than 1 (one) year from the date of termination of the Contract.",
-         "d4": "I agree to receive advertising, mailing data, including by means of mobile cellular network, from the Bank, its counterparties and affiliates.",
-         "list": {
-            "t1": "conclusion of a universal agreement with the Bank;",
-            "t2": "issuing, servicing of Bank cards;",
-            "t3": "creation of personal data information systems of the Bank;",
-            "t4": "As well as for any other purposes directly or indirectly related to the issuance and maintenance of Bank cards and offering other products of the Bank, and sending me information about new products and services of the Bank and/or its counterparties."
-         },
-         "confirm": "Agree to the terms",
-         "form": {
+    "header": {
+        "description": "Automatic Cross-Chain Settlement System",
+        "nav": {
+            "list": [
+                {
+                    "title": "My account",
+                    "link": "account"
+                },
+                {
+                    "title": "KYC",
+                    "link": "profile"
+                },
+                {
+                    "title": "Settings",
+                    "link": "settings"
+                }
+            ]
+        },
+        "link": {
+            "logout": "Log Out",
+            "signup": "Sign Up",
+            "signin": "Sign In"
+        }
+    },
+    "signin": {
+        "title": "Authorization",
+        "description": "Welcome to the authorization page. To protect your data, do not transfer information to third parties and do not tell anyone your password from your personal account",
+        "form": {
+            "email": "Enter your email address",
+            "password": "Enter your password",
             "submit": "Continue"
-         }
-      },
-      "information": {
-         "title": "Basic Information",
-         "description": "Form fields must be completed in English. The Bank has the right to refuse to issue a plastic card if the basic requirement of the Bank is violated. Fields marked as optional, fill in at your discretion.",
-         "form": {
-            "details": "ID-card usually contains information about the cardholder in text, machine-readable and electronic forms, including his/her photo, name, personal number, signature sample, biometric information recorded in an electronic chip or magnetic stripe",
+        }
+    },
+    "signup": {
+        "title": "Registration",
+        "description": "Each field is required. Carefully fill out the form fields. After checking the data, you will be able to log in to your personal account. In order to protect your data, do not transfer information to third parties and do not tell anyone your personal account password",
+        "form": {
+            "email": "Enter your email address.mails",
+            "password": "Enter your password",
+            "password-confirm": "Re-enter your password",
+            "submit": "Continue"
+        }
+    },
+    "account": {
+        "title": "My account",
+        "description": "Welcome to your account. The ACSS project is an easy crypto tool with the lowest fees, providing you with completely secure transactions. It's internal structure makes you possible to create different social and financial institutions, and manage them with their own decentralized registry.",
+        "details": "The available deposit limit is the amount of savings that you can safely store and use in your account. The safe Deposit limit is set by the Bank depending on the number of deposits and withdrawals of cash, depending on the customer's need for constant use of funds.",
+        "balance": "Balance",
+        "card-number": "Card",
+        "generate": "Show",
+        "limit": "Available deposit limit",
+        "pin": "Show Pin",
+        "top-up": "Deposit",
+        "transactions": "Transactions list",
+        "comming": "In process"
+    },
+    "transactions": {
+        "title": "Remittances",
+        "description": "Card Operations",
+        "amount": "Amount",
+        "payment": "Merchant",
+        "period": "Date and time"
+    },
+    "profile": {
+        "title": "KYC",
+        "terms": {
+            "title": "Conditions",
+            "d1": "I consent to the processing of all my personal data specified in the application by any means, including third parties, including reproduction, electronic copying, depersonalization, blocking, destruction, as well as the above-mentioned processing of other my personal data obtained as a result of their processing, for the purpose of:",
+            "d2": "I give my consent to the Bank's counterparties to process all my personal data available to the Bank and / or the Bank's counterparties, including for the purpose of informing me about the services of counterparties, as well as to process information about subscribers and communication services provided by them (if the Bank's counterparty is a communication operator) in order to assess the likelihood of my solvency in the future to make a decision on the issuance of a credit card.",
+            "d3": "This consent is given for a period of 15 years, and in case of its withdrawal, the processing of my personal data must be terminated by the Bank and / or third parties and the data destroyed, subject to termination of the Contract and full repayment of the debt under the Contract no later than 1 (one) year from the date of termination of the Contract.",
+            "d4": "I agree to receive advertising, mailing data, including by means of mobile cellular network, from the Bank, its counterparties and affiliates.",
+            "list": {
+                "t1": "conclusion of a universal agreement with the Bank;",
+                "t2": "issuing, servicing of Bank cards;",
+                "t3": "creation of personal data information systems of the Bank;",
+                "t4": "As well as for any other purposes directly or indirectly related to the issuance and maintenance of Bank cards and offering other products of the Bank, and sending me information about new products and services of the Bank and/or its counterparties."
+            },
+            "confirm": "Agree to the terms",
+            "form": {
+                "submit": "Continue"
+            }
+        },
+        "personalinfo": "Personal Information",
+        "contactinfo": "Contact Information",
+        "addressinfo": "Address Information",
+        "idinfo": "ID Card / Passport",
+        "information": {
+            "title": "Basic Information",
+            "description": "Form fields must be completed in English. The Bank has the right to refuse to issue a plastic card if the basic requirement of the Bank is violated. Fields marked as optional, fill in at your discretion.",
+            "form": {
+                "details": "ID-card usually contains information about the cardholder in text, machine-readable and electronic forms, including his/her photo, name, personal number, signature sample, biometric information recorded in an electronic chip or magnetic stripe",
+                "localname": "First Name (native language)",
+                "locallastname": "Last Name (native language)",
+                "name": "Your name",
+                "surname": "Surname",
+                "midlname": "Middle Name (Optional)",
+                "gender": "Your gender",
+                "occupation": "Profession Code",
+                "date-of-birth": "Date of Birth",
+                "nationality": "National affiliation",
+                "cell-code": "Phone operator Code",
+                "cell-number": "Phone number",
+                "postcode": "Postcode",
+                "address": "Address",
+                "city": "City",
+                "country": "Country",
+                "submit": "Next step"
+            },
+            "gender": {
+                "male": "Male",
+                "female": "Female"
+            },
+            "occupation": [
+                { "value": "001", "title": "Civil Servant" },
+                {
+                    "value": "002",
+                    "title": "Financial Investment Broker / Insurance Broker"
+                },
+                { "value": "003", "title": "Property Agent" },
+                { "value": "004", "title": "Lawyer / Legal Counsel" },
+                {
+                    "value": "005",
+                    "title": "Accountant / Accountant Financial Officer"
+                },
+                { "value": "006", "title": "Doctor/Assistant Medical Staff" },
+                { "value": "007", "title": "Construction / Engineering Staff" },
+                { "value": "008", "title": "Police Officers" },
+                { "value": "009", "title": "Cashier" },
+                { "value": "010", "title": "Salesperson/Store Supervisor" },
+                { "value": "011", "title": "Specialist" },
+                { "value": "012", "title": "Social and Counseling Workers" },
+                { "value": "013", "title": "Educators" },
+                { "value": "014", "title": "Chef" },
+                { "value": "015", "title": "Designer" },
+                { "value": "017", "title": "Security Guard" },
+                { "value": "018", "title": "Senior Management" },
+                { "value": "019", "title": "Management or Civilian Staff" },
+                { "value": "020", "title": "Blue Collar Staff" },
+                { "value": "021", "title": "Service Staff" },
+                { "value": "022", "title": "Housewife or Houseworker" },
+                { "value": "023", "title": "Students" },
+                { "value": "024", "title": "Unemployed" },
+                { "value": "025", "title": "Employer / Self-Employed" },
+                { "value": "026", "title": "Retired People" }
+            ]
+        },
+        "passport": {
+            "title": "Passport",
+            "description": "Passport of a citizen of the Republic of China, an official document issued to citizens of the PRC, registered as residents of mainland China, to verify their identity and for traveling abroad.",
+            "form": {
+                "id-front": "Front side of the card",
+                "id-back": "Back side of the card",
+                "id-selfie": "Selfie photo with ID card",
+                "signature": "Photo of your signature",
+                "details": "Please upload an image of your identity document. Make sure the entire document can be seen, including edges and corners. If your image does not meet these requirements, your application will be rejected.",
+                "pid-number": "ID Card Number",
+                "poa-number": "Passport Number (Optional)",
+                "back": "Previous step",
+                "submit": "Submit"
+            }
+        }
+    },
+    "settings": {
+        "title": "Settings",
+        "description": "Be careful when changing your account settings. Use only strong, complex passwords to secure your data and your account. In order to protect your data, do not transfer information to third parties and do not tell anyone your previous and current passwords from your personal account",
+        "form": {
+            "email": "Enter your email address",
             "name": "Your name",
-            "surname": "Surname",
-            "midlname": "Middle Name (Optional)",
-            "gender": "Your gender",
-            "occupation": "Profession Code",
-            "date-of-birth": "Date of Birth",
-            "nationality": "National affiliation",
-            "cell-code": "Phone operator Code",
-            "cell-number": "Phone number",
-            "postcode": "Postcode",
-            "address": "Address",
-            "city": "City",
-            "country": "Country",
-            "submit": "Next step"
-         },
-         "gender": {
-            "male": "Male",
-            "female": "Female"
-         },
-         "occupation": [
-            { "value": "001", "title": "Civil Servant" },
-            {
-               "value": "002",
-               "title": "Financial Investment Broker / Insurance Broker"
-            },
-            { "value": "003", "title": "Property Agent" },
-            { "value": "004", "title": "Lawyer / Legal Counsel" },
-            {
-               "value": "005",
-               "title": "Accountant / Accountant Financial Officer"
-            },
-            { "value": "006", "title": "Doctor/Assistant Medical Staff" },
-            { "value": "007", "title": "Construction / Engineering Staff" },
-            { "value": "008", "title": "Police Officers" },
-            { "value": "009", "title": "Cashier" },
-            { "value": "010", "title": "Salesperson/Store Supervisor" },
-            { "value": "011", "title": "Specialist" },
-            { "value": "012", "title": "Social and Counseling Workers" },
-            { "value": "013", "title": "Educators" },
-            { "value": "014", "title": "Chef" },
-            { "value": "015", "title": "Designer" },
-            { "value": "017", "title": "Security Guard" },
-            { "value": "018", "title": "Senior Management" },
-            { "value": "019", "title": "Management or Civilian Staff" },
-            { "value": "020", "title": "Blue Collar Staff" },
-            { "value": "021", "title": "Service Staff" },
-            { "value": "022", "title": "Housewife or Houseworker" },
-            { "value": "023", "title": "Students" },
-            { "value": "024", "title": "Unemployed" },
-            { "value": "025", "title": "Employer / Self-Employed" },
-            { "value": "026", "title": "Retired People" }
-         ]
-      },
-      "passport": {
-         "title": "Passport",
-         "description": "Passport of a citizen of the Republic of China, an official document issued to citizens of the PRC, registered as residents of mainland China, to verify their identity and for traveling abroad.",
-         "form": {
-            "id-front": "Photo of the front side of the card",
-            "id-back": "Photo of the back side of the card",
-            "id-selfie": "Selfie photo with ID card or passport",
-            "signature": "Photo of your signature on A4 sheet",
-            "details": "Please upload an image of your identity document. Make sure the entire document can be seen, including edges and corners. If your image does not meet these requirements, your application will be rejected.",
-            "pid-number": "ID Card Number",
-            "poa-number": "Passport Number (Optional)",
-            "back": "Previous step",
-            "submit": "Submit"
-         }
-      }
-   },
-   "settings": {
-      "title": "Settings",
-      "description": "Be careful when changing your account settings. Use only strong, complex passwords to secure your data and your account. In order to protect your data, do not transfer information to third parties and do not tell anyone your previous and current passwords from your personal account",
-      "form": {
-         "email": "Enter your email address",
-         "name": "Your name",
-         "password": "Enter your password",
-         "password-confirm": "Repeat password",
-         "surname": "Your surname",
-         "submit": "Save"
-      }
-   },
-   "footer": {
-      "description": "© 2019 Automatic Cross-Chain Settlement System"
-   }
+            "password": "Enter your password",
+            "password-confirm": "Repeat password",
+            "surname": "Your surname",
+            "submit": "Save"
+        }
+    },
+    "footer": {
+        "description": "© 2019 Automatic Cross-Chain Settlement System"
+    },
+    "404": {
+        "description": "Page not found."
+    }
 }

@@ -21,14 +21,14 @@ Vue.prototype.$http = axios
 const token = localStorage.getItem('authentication_token')
 
 if (token) {
-   Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+    Vue.prototype.$http.defaults.headers.common['Authorization'] = token
 }
 
 Vue.config.productionTip = false
 
 new Vue({
-   router,
-   store,
-   i18n,
-   render: h => h(App),
+    router,
+    store,
+    i18n,
+    render: h => h(App),
 }).$mount('#app')

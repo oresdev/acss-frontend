@@ -2,105 +2,105 @@
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
 .form-select {
-   -moz-user-select: -moz-none;
-   -ms-user-select: none;
-   -webkit-user-select: none;
-   user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 
-   background: transparent;
-   border-bottom: 2px solid $color-brand;
+    background: transparent;
+    border-bottom: 2px solid $color-brand;
 
-   overflow: hidden;
+    overflow: hidden;
 
-   position: relative;
-   margin: 0 0 1rem 0;
+    position: relative;
+    margin: 0 0 1rem 0;
 
-   max-width: 380px;
+    width: 80%;
+    @include breakpoints(phone) {
+        width: 100%;
+    }
 
-   width: 100%;
+    &:after {
+        content: '▾';
 
-   &:after {
-      content: '▾';
+        color: $color-brand;
 
-      color: $color-brand;
+        font-size: 24px;
 
-      font-size: 24px;
+        line-height: 40px;
 
-      line-height: 40px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
 
-      position: absolute;
-      top: -3px;
-      right: 0;
+        z-index: 1;
 
-      z-index: 1;
+        @include breakpoints(tablet) {
+            font-size: 18px;
+            right: 0;
+        }
 
-      @include breakpoints(tablet) {
-         font-size: 18px;
-         top: -5px;
-         right: 0;
-      }
-
-      .ie & {
-         display: none;
-      }
-   }
+        .ie & {
+            display: none;
+        }
+    }
 }
 
 select {
-   background: transparent;
-   background-image: none;
-   display: block;
-   color: #8c8f95;
+    background: transparent;
+    background-image: none;
+    display: block;
+    color: #8c8f95;
 
-   cursor: pointer;
+    cursor: pointer;
 
-   z-index: 2;
-   border: none;
+    z-index: 2;
+    border: none;
 
-   margin: -1px 0;
-   outline: none;
-   padding: 0.5rem 0;
-   position: relative;
-   text-indent: -2px;
-   // This is so hacky.. (for Firefox)
-   // Removes the default select arrow.
-   text-overflow: '';
-   // End of brutal hack
+    margin: -1px 0;
+    outline: none;
+    padding: 0.5rem 0;
+    position: relative;
+    text-indent: -2px;
+    // This is so hacky.. (for Firefox)
+    // Removes the default select arrow.
+    text-overflow: '';
+    // End of brutal hack
 
-   -moz-appearance: none;
-   -webkit-appearance: none;
-   width: 100%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
 
-   @include breakpoints(tablet) {
-      margin: 0;
-      text-indent: 0;
-   }
+    @include breakpoints(tablet) {
+        margin: 0;
+        text-indent: 0;
+    }
 
-   &[multiple='multiple'] {
-      height: auto;
+    &[multiple='multiple'] {
+        height: auto;
 
-      &:hover {
-         border-color: $color-brand;
-         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      }
-   }
+        &:hover {
+            border-color: $color-brand;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+    }
 
-   option {
-      color: #202532;
-   }
+    option {
+        color: #202532;
+    }
 
-   option[disabled] {
-      color: #ffffff;
-      text-shadow: none;
-      border: none;
-   }
+    option[disabled] {
+        color: #ffffff;
+        text-shadow: none;
+        border: none;
+    }
 }
 
 select:-moz-focusring {
-   color: transparent;
-   text-shadow: 0 0 0 #8c8f95;
+    color: transparent;
+    text-shadow: 0 0 0 #8c8f95;
 }
 
 select::-ms-expand {
-   display: none;
+    display: none;
 }

@@ -1,27 +1,29 @@
 <template>
-   <div id="app">
-      <header>
-         <navigationHeader />
-      </header>
+    <div id="app">
+        <header class="header">
+            <navigation-header />
+        </header>
 
-      <main>
-         <router-view />
-      </main>
+        <main class="main">
+            <router-view />
+        </main>
 
-      <footer>
-         <navigationFooter />
-      </footer>
-   </div>
+        <footer class="footer">
+            <small class="footer__copyright">
+                {{ $t('footer.description') }}
+            </small>
+        </footer>
+    </div>
 </template>
 
 <script>
-import navigationHeader from '@/components/navigationHeader.vue'
-import navigationFooter from '@/components/navigationFooter.vue'
 export default {
-   data() {
-      return {}
-   },
-   components: { navigationHeader, navigationFooter },
+    data() {
+        return {}
+    },
+    components: {
+        navigationHeader: () => import('@/components/navigationHeader.vue'),
+    },
 }
 </script>
 
