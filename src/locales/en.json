@@ -55,6 +55,7 @@
         "transactions": "Transactions list",
         "comming": "In process",
         "cardsuccess": "Now you can snap your card",
+        "cardtype": "Enter the card number in this field",
         "snap": "Snap your card",
         "detach": "Detach card"
     },

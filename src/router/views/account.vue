@@ -29,6 +29,7 @@
                                     <input class="card-form__input" type="text" v-mask="'#### #### #### ####'" v-model="number" placeholder="#### #### #### ####" />
                                 </label>
                             </form>
+                            <span class="create__status" v-if="number.length < 19">{{ $t('account.cardtype') }}</span>
                             <span class="create__status" v-if="number.length == 19">{{ $t('account.cardsuccess') }}</span>
                         </div>
                     </div>
