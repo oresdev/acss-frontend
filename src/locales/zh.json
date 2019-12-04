@@ -107,7 +107,7 @@
                 "cell-number": "电话号码",
                 "postcode": "邮政编码",
                 "address": "居住地址（英文填写）",
-                "city": "城市名",
+                "city": "城市名称(用英文填写)",
                 "country": "国别",
                 "submit": "继续"
             },

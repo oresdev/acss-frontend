@@ -29,7 +29,7 @@
 
                     <label for="dateofbirth">
                         {{ $t('profile.information.form.date-of-birth') }}
-                        <input type="text" v-mask="'##.##.####'" id="dateofbirth" name="dateofbirth" v-bind:value="date" required />
+                        <input type="text" id="dateofbirth" name="dateofbirth" placeholder="dd.mm.yyyy" v-bind:value="date" required />
                     </label>
 
                     <label for="firstname_local">
@@ -80,12 +80,12 @@
                 <div class="form__col form__col--3">
                     <label for="cell_number_country_code">
                         {{ $t('profile.information.form.cell-code') }}
-                        <input type="text" v-mask="'###'" id="cell_number_country_code" name="cell_number_country_code" v-bind:value="profile.cell_number_country_code" required />
+                        <input type="text" id="cell_number_country_code" name="cell_number_country_code" placeholder="000" v-bind:value="profile.cell_number_country_code" required />
                     </label>
 
                     <label for="cell_number">
                         {{ $t('profile.information.form.cell-number') }}
-                        <input type="text" v-mask="'##############'" id="cell_number" name="cell_number" v-bind:value="profile.cell_number" required />
+                        <input type="text" id="cell_number" name="cell_number" placeholder="00000000000" v-bind:value="profile.cell_number" required />
                     </label>
                 </div>
             </div>
@@ -105,7 +105,7 @@
 
                     <label for="postalcode">
                         {{ $t('profile.information.form.postcode') }}
-                        <input type="text" v-mask="'##############'" id="postalcode" name="postalcode" v-bind:value="profile.postalcode" required />
+                        <input type="text" id="postalcode" name="postalcode" placeholder="000000" v-bind:value="profile.postalcode" required />
                     </label>
 
                     <label class="form-select" for="country">
