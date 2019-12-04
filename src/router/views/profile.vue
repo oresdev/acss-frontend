@@ -47,8 +47,10 @@
                     <label for="gender" class="form-select">
                         {{ $t('profile.information.form.gender') }}
                         <select id="gender" name="gender" required>
-                            <option v-if="profile.gender" value="M">{{ $t('profile.information.gender.male') }}</option>
-                            <option v-if="profile.gender" value="F">{{ $t('profile.information.gender.female') }}</option>
+                            <option disabled selected></option>
+                            <option v-for="option in genderOptions" :key="option.id" v-bind:value="option.value" :selected="option.value == profile.gender">{{
+                                $t('profile.information.gender.' + option.text + '')
+                            }}</option>
                         </select>
                     </label>
 
@@ -190,6 +192,10 @@ export default {
             objects: {
                 iso: iso,
             },
+            genderOptions: [
+                { text: 'male', value: 'M' },
+                { text: 'female', value: 'F' },
+            ],
             firstname: '',
             lastname: '',
             middlename: '',
