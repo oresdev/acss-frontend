@@ -3,579 +3,668 @@
 // -----------------------------------------------------------------------------
 
 body {
-   background: linear-gradient($color-background, $color-background),
-      url('~@/assets/background__overlay.jpg');
-   color: $color-primary;
+    background: linear-gradient($color-background, $color-background), url('~@/assets/background__overlay.jpg');
+    color: $color-primary;
 }
 
 header,
 main,
 footer {
-   margin: 0 auto;
-   max-width: $width-max;
+    margin: 0 auto;
+    max-width: $width-max;
 
-   @include responsive-spacing(padding);
+    @include responsive-spacing(padding);
 
-   @include relative();
+    @include relative();
 
-   width: 100%;
+    width: 100%;
 }
 
 main {
-   margin: 3rem auto;
+    margin: 3rem auto;
 }
 
 .signin {
-   article {
-      margin: 2rem auto;
-      p {
-         max-width: 688px;
-      }
-   }
+    article {
+        margin: 2rem auto;
+        p {
+            max-width: 688px;
+        }
+    }
 
-   .signin-form {
-      &__label {
-         display: block;
-      }
+    .signin-form {
+        &__label {
+            display: block;
+        }
 
-      &__input {
-         background-color: transparent;
+        &__input {
+            background-color: transparent;
 
-         border-bottom: 2px solid $color-brand;
-         color: $color-input;
+            border-bottom: 2px solid $color-brand;
+            color: $color-input;
 
-         margin: 0 0 1rem 0;
-         padding: 0.5rem 0;
+            margin: 0 0 1rem 0;
+            padding: 0.5rem 0;
 
-         max-width: 380px;
-         width: 100%;
+            max-width: 380px;
+            width: 100%;
 
-         @include breakpoints(phone) {
-            max-width: 220px;
-         }
-      }
+            @include breakpoints(phone) {
+                max-width: 220px;
+            }
+        }
 
-      &__button {
-         background-color: $color-brand;
+        &__button {
+            background-color: $color-brand;
 
-         color: $color-secondary;
+            color: $color-secondary;
 
-         margin: 1rem 0;
-         padding: 0.8rem 2rem;
+            margin: 1rem 0;
+            padding: 0.8rem 2rem;
 
-         &:disabled {
-            cursor: default;
+            &:disabled {
+                cursor: default;
 
-            opacity: 0.1 !important;
-         }
+                opacity: 0.1 !important;
+            }
 
-         &:hover {
-            opacity: 0.8;
-         }
-      }
-   }
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
 }
 
 .signup {
-   article {
-      margin: 2rem auto;
-      p {
-         max-width: 688px;
-      }
-   }
+    article {
+        margin: 2rem auto;
+        p {
+            max-width: 688px;
+        }
+    }
 
-   .signup-form {
-      &__label {
-         display: block;
-      }
+    .signup-form {
+        &__label {
+            display: block;
+        }
 
-      &__input {
-         background-color: transparent;
+        &__input {
+            background-color: transparent;
 
-         border-bottom: 2px solid $color-brand;
-         color: $color-input;
+            border-bottom: 2px solid $color-brand;
+            color: $color-input;
 
-         margin: 0 0 1rem 0;
-         padding: 0.5rem 0;
+            margin: 0 0 1rem 0;
+            padding: 0.5rem 0;
 
-         max-width: 380px;
-         width: 100%;
+            max-width: 380px;
+            width: 100%;
 
-         @include breakpoints(phone) {
-            max-width: 220px;
-         }
-      }
+            @include breakpoints(phone) {
+                max-width: 220px;
+            }
+        }
 
-      &__button {
-         background-color: $color-brand;
+        &__button {
+            background-color: $color-brand;
 
-         color: $color-secondary;
+            color: $color-secondary;
 
-         margin: 1rem 0;
-         padding: 0.8rem 2rem;
+            margin: 1rem 0;
+            padding: 0.8rem 2rem;
 
-         &:disabled {
-            cursor: default;
+            &:disabled {
+                cursor: default;
 
-            opacity: 0.1 !important;
-         }
+                opacity: 0.1 !important;
+            }
 
-         &:hover {
-            opacity: 0.8;
-         }
-      }
-   }
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
 }
 
 .cards {
-   article {
-      margin: 2rem auto;
-      p {
-         max-width: 920px;
-      }
-   }
+    h2 {
+        margin: 0 0 1em;
+    }
+    article {
+        margin: 2rem auto;
+        p {
+            max-width: 920px;
+        }
+    }
 
-   .cards-items {
-      @include flex(row, flex-start, baseline, wrap);
+    .cards-items {
+        @include flex(row, flex-start, baseline, wrap);
 
-      margin: -1rem;
-      padding: 0.5rem 0;
+        margin: -1rem;
+        padding: 0.5rem 0;
 
-      &__item {
-         background-color: $color-secondary;
-         flex: 1;
-         margin: 1rem;
-         padding: 3rem;
+        &__item {
+            background-color: $color-secondary;
+            flex: 1;
+            margin: 1rem;
+            padding: 3rem;
 
-         min-width: 250px;
+            min-width: 250px;
 
-         @include breakpoints(phone) {
+            @include breakpoints(phone) {
+                padding: 1rem;
+            }
+
+            @include relative();
+
+            span {
+                display: block;
+                font-size: 30pt;
+                font-weight: 400;
+                margin: 0 0 1.5rem 0;
+
+                @include breakpoints(phone) {
+                    font-size: 20pt;
+                }
+            }
+
+            small {
+                display: block;
+                font-size: 10pt;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                @include breakpoints(phone) {
+                    font-size: 8pt;
+                }
+            }
+
+            p {
+                max-width: 920px;
+            }
+
+            figure {
+                margin: 0;
+
+                &:last-child {
+                    img {
+                        @include absolute(top 1rem right 0);
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    max-width: 386px;
+                    @include relative();
+
+                    @include breakpoints(tablet) {
+                        margin-left: -0.5rem;
+                    }
+                }
+            }
+        }
+
+        &__link {
+            background-color: transparent;
+            border-bottom: 2px solid transparent;
+            color: $color-brand;
+
+            display: inline-block;
+
+            line-height: 150%;
+            margin: 0.5em 1rem 0.5em 0;
+            padding: 0;
+
+            &:hover {
+                border-bottom: 2px solid $color-brand;
+                opacity: 0.8;
+            }
+        }
+
+        &__button {
+            background-color: $color-brand;
+
+            color: $color-secondary;
+            display: block;
+
+            margin: 1rem 1rem 1rem 0;
+            padding: 0.8rem 2rem;
+
+            width: 100%;
+            max-width: 200px;
+
+            &:hover {
+                opacity: 0.8;
+            }
+            &:last-child {
+                margin: 1rem 0;
+            }
+
+            &:disabled {
+                cursor: default !important;
+                opacity: 0.2;
+
+                &:hover {
+                    opacity: 0.2;
+                }
+            }
+        }
+    }
+
+    .cards-group {
+        @include flex(row, flex-start, baseline, wrap);
+
+        &__item {
+            flex: 1;
+            position: relative;
+
+            article {
+                padding: 0 1em 0 0;
+            }
+
+            @include breakpoints(tablet) {
+                flex-basis: 100%;
+
+                &:last-child {
+                    margin: 2rem 0;
+                }
+            }
+        }
+    }
+}
+
+.settings {
+    article {
+        margin: 2rem auto;
+        p {
+            max-width: 920px;
+        }
+    }
+
+    .settings-form {
+        &__label {
+            display: block;
+        }
+
+        &__input {
+            background-color: transparent;
+
+            border-bottom: 2px solid $color-brand;
+            color: $color-input;
+
+            margin: 0 0 1rem 0;
+            padding: 0.5rem 0;
+
+            max-width: 380px;
+            width: 100%;
+
+            @include breakpoints(phone) {
+                max-width: 220px;
+            }
+        }
+
+        &__button {
+            background-color: $color-brand;
+
+            color: $color-secondary;
+
+            margin: 1rem 0;
+            padding: 0.8rem 2rem;
+
+            &:disabled {
+                cursor: default;
+
+                opacity: 0.1 !important;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.tabs {
+    @include flex(row, flex-start, flex-start, wrap);
+
+    list-style: none;
+
+    margin: 2rem auto;
+    padding: 0;
+
+    @include breakpoints(tablet) {
+        @include flex(row, flex-start, flex-start, wrap);
+
+        margin: 2rem 0;
+    }
+
+    li {
+        font-weight: 600;
+
+        cursor: pointer;
+        margin: 1rem;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        opacity: 0.1;
+        text-transform: uppercase;
+
+        @include breakpoints(tablet) {
+            margin: 0.5rem;
+        }
+
+        &:hover {
+            opacity: 0.8;
+            &:hover {
+                border-bottom: 2px solid $color-brand;
+            }
+        }
+    }
+
+    .active {
+        border-bottom: 2px solid $color-brand;
+        opacity: 1;
+    }
+}
+
+.profile {
+    article {
+        margin: 2rem auto;
+        p {
+            max-width: 920px;
+        }
+    }
+
+    &__list {
+        list-style: square;
+        line-height: 200%;
+
+        padding: 0 0 0 1rem;
+
+        li {
+            padding: 0 0 0 0.5rem;
+        }
+    }
+}
+
+.profile-form {
+    &__label {
+        display: block;
+    }
+
+    &__checkbox {
+        margin: 1rem 0 0 1rem;
+        display: inline-block;
+        vertical-align: sub;
+    }
+
+    &__input {
+        background-color: transparent;
+
+        border-bottom: 2px solid $color-brand;
+        color: $color-input;
+
+        margin: 0 0 1rem 0;
+        padding: 0.5rem 0;
+
+        max-width: 380px;
+        width: 100%;
+
+        @include breakpoints(phone) {
+            max-width: 380px;
+        }
+    }
+
+    &__file {
+        display: block;
+        margin: 1rem 0;
+    }
+
+    &__button {
+        background-color: $color-brand;
+
+        color: $color-secondary;
+
+        margin: 1rem 1rem 1rem 0;
+        padding: 0.8rem 2rem;
+
+        &:disabled {
+            cursor: default;
+
+            opacity: 0.1 !important;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.profile-form-items {
+    background-color: $color-secondary;
+
+    @include flex(row, flex-start, baseline, wrap);
+
+    margin: 1rem 0;
+
+    &__item {
+        flex: 1;
+        padding: 3rem;
+
+        @include breakpoints(tablet) {
+            flex-basis: 100%;
+        }
+
+        @include breakpoints(phone) {
             padding: 1rem;
-         }
+        }
 
-         @include relative();
+        @include relative();
 
-         span {
+        span {
             display: block;
             font-size: 30pt;
             font-weight: 700;
             margin: 2rem 0;
 
             @include breakpoints(phone) {
-               font-size: 20pt;
+                font-size: 20pt;
             }
-         }
+        }
 
-         small {
+        small {
             display: block;
-            font-size: 10pt;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-size: 9pt;
+            font-weight: 700;
 
             @include breakpoints(phone) {
-               font-size: 8pt;
+                font-size: 7.4pt;
             }
-         }
+        }
 
-         p {
+        p {
             max-width: 920px;
-         }
+        }
 
-         figure {
+        figure {
             margin: 0;
 
-            &:last-child {
-               img {
-                  @include absolute(top 1rem right 0);
-               }
-            }
-
             img {
-               width: 100%;
-               max-width: 386px;
-               @include relative();
+                width: 100%;
+                max-width: 386px;
+                @include relative();
 
-               @include breakpoints(tablet) {
-                  margin-left: -0.5rem;
-               }
+                @include breakpoints(tablet) {
+                    margin-left: -10px;
+                }
             }
-         }
-      }
-
-      &__link {
-         background-color: transparent;
-         border-bottom: 2px solid transparent;
-         color: $color-brand;
-
-         display: block;
-
-         line-height: 150%;
-         margin: 1rem 0;
-         padding: 0;
-
-         &:hover {
-            border-bottom: 2px solid $color-brand;
-            opacity: 0.8;
-         }
-      }
-
-      &__button {
-         background-color: $color-brand;
-
-         color: $color-secondary;
-
-         margin: 1rem 1rem 1rem 0;
-         padding: 0.8rem 2rem;
-
-         width: 100%;
-         max-width: 200px;
-
-         &:hover {
-            opacity: 0.8;
-         }
-
-         &:last-child {
-            margin: 1rem 0;
-         }
-      }
-   }
-
-   .cards-group {
-      @include flex(row, flex-start, baseline, wrap);
-
-      &__item {
-         flex: 1;
-         position: relative;
-
-         @include breakpoints(tablet) {
-            flex-basis: 100%;
-
-            &:last-child {
-               margin: 2rem 0;
-            }
-         }
-      }
-   }
-}
-
-.settings {
-   article {
-      margin: 2rem auto;
-      p {
-         max-width: 920px;
-      }
-   }
-
-   .settings-form {
-      &__label {
-         display: block;
-      }
-
-      &__input {
-         background-color: transparent;
-
-         border-bottom: 2px solid $color-brand;
-         color: $color-input;
-
-         margin: 0 0 1rem 0;
-         padding: 0.5rem 0;
-
-         max-width: 380px;
-         width: 100%;
-
-         @include breakpoints(phone) {
-            max-width: 220px;
-         }
-      }
-
-      &__button {
-         background-color: $color-brand;
-
-         color: $color-secondary;
-
-         margin: 1rem 0;
-         padding: 0.8rem 2rem;
-
-         &:disabled {
-            cursor: default;
-
-            opacity: 0.1 !important;
-         }
-
-         &:hover {
-            opacity: 0.8;
-         }
-      }
-   }
-}
-
-.tabs {
-   @include flex(row, flex-start, flex-start, wrap);
-
-   list-style: none;
-
-   margin: 2rem auto;
-   padding: 0;
-
-   @include breakpoints(tablet) {
-      @include flex(row, flex-start, flex-start, wrap);
-
-      margin: 2rem 0;
-   }
-
-   li {
-      font-weight: 600;
-
-      cursor: pointer;
-      margin: 1rem;
-
-      &:first-child {
-         margin-left: 0;
-      }
-
-      opacity: 0.1;
-      text-transform: uppercase;
-
-      @include breakpoints(tablet) {
-         margin: 0.5rem;
-      }
-
-      &:hover {
-         opacity: 0.8;
-         &:hover {
-            border-bottom: 2px solid $color-brand;
-         }
-      }
-   }
-
-   .active {
-      border-bottom: 2px solid $color-brand;
-      opacity: 1;
-   }
-}
-
-.profile {
-   article {
-      margin: 2rem auto;
-      p {
-         max-width: 920px;
-      }
-   }
-
-   &__list {
-      list-style: square;
-      line-height: 200%;
-
-      padding: 0 0 0 1rem;
-
-      li {
-         padding: 0 0 0 0.5rem;
-      }
-   }
-}
-
-.profile-form {
-   &__label {
-      display: block;
-   }
-
-   &__checkbox {
-      margin: 1rem 0 0 1rem;
-      display: inline-block;
-      vertical-align: sub;
-   }
-
-   &__input {
-      background-color: transparent;
-
-      border-bottom: 2px solid $color-brand;
-      color: $color-input;
-
-      margin: 0 0 1rem 0;
-      padding: 0.5rem 0;
-
-      max-width: 380px;
-      width: 100%;
-
-      @include breakpoints(phone) {
-         max-width: 380px;
-      }
-   }
-
-   &__file {
-      display: block;
-      margin: 1rem 0;
-   }
-
-   &__button {
-      background-color: $color-brand;
-
-      color: $color-secondary;
-
-      margin: 1rem 1rem 1rem 0;
-      padding: 0.8rem 2rem;
-
-      &:disabled {
-         cursor: default;
-
-         opacity: 0.1 !important;
-      }
-
-      &:hover {
-         opacity: 0.8;
-      }
-   }
-}
-
-.profile-form-items {
-   background-color: $color-secondary;
-
-   @include flex(row, flex-start, baseline, wrap);
-
-   margin: 1rem 0;
-
-   &__item {
-      flex: 1;
-      padding: 3rem;
-
-      @include breakpoints(tablet) {
-         flex-basis: 100%;
-      }
-
-      @include breakpoints(phone) {
-         padding: 1rem;
-      }
-
-      @include relative();
-
-      span {
-         display: block;
-         font-size: 30pt;
-         font-weight: 700;
-         margin: 2rem 0;
-
-         @include breakpoints(phone) {
-            font-size: 20pt;
-         }
-      }
-
-      small {
-         display: block;
-         font-size: 9pt;
-         font-weight: 700;
-
-         @include breakpoints(phone) {
-            font-size: 7.4pt;
-         }
-      }
-
-      p {
-         max-width: 920px;
-      }
-
-      figure {
-         margin: 0;
-
-         img {
-            width: 100%;
-            max-width: 386px;
-            @include relative();
-
-            @include breakpoints(tablet) {
-               margin-left: -10px;
-            }
-         }
-      }
-   }
+        }
+    }
 }
 
 .transactions {
-   article {
-      margin: 2rem auto;
-      p {
-         max-width: 920px;
-      }
-   }
+    article {
+        margin: 2rem auto;
+        p {
+            max-width: 920px;
+        }
+    }
 
-   &__table {
-      width: 100%;
-   }
+    &__table {
+        width: 100%;
+    }
 
-   table {
-      border: 1px solid $color-brand;
-      border-collapse: collapse;
-      width: 100%;
+    table {
+        border: 1px solid $color-brand;
+        border-collapse: collapse;
+        width: 100%;
 
-      th {
-         font-size: 10pt;
-         letter-spacing: 1px;
-         text-transform: uppercase;
-         padding: 1rem !important;
-      }
+        th {
+            font-size: 10pt;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 1rem !important;
+        }
 
-      tr {
-         border: 1px solid $color-brand;
-         padding: 0.32rem;
-      }
+        tr {
+            border: 1px solid $color-brand;
+            padding: 0.32rem;
+        }
 
-      th,
-      td {
-         padding: 0.72rem;
-         text-align: center;
-      }
-   }
+        th,
+        td {
+            padding: 0.72rem;
+            text-align: center;
+        }
+    }
 
-   @include breakpoints(phone) {
-      table {
-         border: 0;
+    @include breakpoints(phone) {
+        table {
+            border: 0;
 
-         thead {
-            display: none;
-         }
-
-         tr {
-            border-bottom: 2px solid $color-brand;
-            display: block;
-            margin-bottom: 1rem;
-         }
-
-         td {
-            border-bottom: 1px dotted $color-brand;
-            display: block;
-            font-size: 9pt;
-            text-align: left;
-
-            &:last-child {
-               border-bottom: 0;
+            thead {
+                display: none;
             }
-            &::before {
-               content: attr(data-label);
-               float: left;
-               font-weight: bold;
-               text-transform: uppercase;
-               width: 100%;
+
+            tr {
+                border-bottom: 2px solid $color-brand;
+                display: block;
+                margin-bottom: 1rem;
             }
-         }
-      }
-   }
+
+            td {
+                border-bottom: 1px dotted $color-brand;
+                display: block;
+                font-size: 9pt;
+                text-align: left;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+                &::before {
+                    content: attr(data-label);
+                    float: left;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 
 .process {
-   background-color: hsl(224, 21%, 21%);
-   list-style: none;
+    background-color: hsl(224, 21%, 21%);
+    list-style: none;
 
-   padding: 0;
-   transition: all 3s ease;
+    padding: 0;
+    transition: all 3s ease;
 
-   &__item {
-      background-color: $color-brand;
-      color: hsl(224, 21%, 21%);
-      font-weight: bold;
+    &__item {
+        background-color: $color-brand;
+        color: hsl(224, 21%, 21%);
+        font-weight: bold;
 
-      max-width: 100%;
-      padding: 1em 0;
-      text-align: center;
-      transition: all 1s ease;
-   }
+        max-width: 100%;
+        padding: 1em 0;
+        text-align: center;
+        transition: all 1s ease;
+    }
+}
+
+.status {
+    margin: 2em 0 1em;
+
+    &__i {
+        background-color: $color-secondary;
+        padding: 1.2em 2em;
+
+        &--error {
+            background-color: $color-error;
+        }
+
+        &--success {
+            background-color: $color-success;
+        }
+    }
+}
+
+.centered {
+    align-items: center !important;
+}
+
+.create {
+    &__i {
+        border: 1px dashed #ccc;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        max-width: 420px;
+        max-height: 260px;
+        margin: 0 auto;
+        svg {
+            width: 100%;
+            max-width: 26px;
+            fill: #fff;
+            opacity: 0.6;
+        }
+    }
+    &__status {
+        font-size: 13px !important;
+        color: #ccc;
+        width: 100%;
+        text-align: center;
+        margin: 1em 0 0 !important;
+        position: absolute;
+        bottom: 2em;
+        font-weight: 100 !important;
+    }
+}
+
+.card-form {
+    &__input {
+        background: transparent;
+        display: block;
+        color: $color-primary;
+        font-size: 16px;
+        letter-spacing: 6px;
+        margin: 0;
+        padding: 0;
+        text-shadow: 7px 6px 10px rgba(3, 6, 10, 0.55);
+        word-break: break-all;
+        text-align: center;
+
+        @include breakpoints(tablet) {
+            font-size: 14px;
+        }
+        @include breakpoints(phone) {
+            letter-spacing: 3px;
+        }
+    }
 }

@@ -53,7 +53,9 @@
         "pin": "显示交易代码",
         "top-up": "充值",
         "transactions": "交易清单",
-        "comming": "开发中"
+        "comming": "开发中",
+        "cardsuccess": "现在可以绑定您的银行卡",
+        "snap": "绑定银行卡"
     },
     "transactions": {
         "title": "汇款",
@@ -187,5 +189,8 @@
     },
     "404": {
         "description": "找不到页面。"
+    },
+    "success": {
+        "description": "资料提交成功"
     }
 }

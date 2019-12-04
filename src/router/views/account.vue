@@ -2,23 +2,56 @@
     <section class="cards">
         <h2>{{ $t('account.title') }}</h2>
 
-        <article>
-            <p>{{ $t('account.description') }}</p>
-        </article>
+        <div class="status" v-if="error">
+            <div class="status__i status__i--error">
+                {{ error }}
+            </div>
+        </div>
 
-        <div class="cards-items">
+        <div class="cards-items" v-if="cards == false">
+            <div class="cards-items__item cards-group centered">
+                <div class="cards-group__item">
+                    <article>
+                        <p>{{ $t('account.description') }}</p>
+                    </article>
+                    <button class="cards-items__button" type="submit" v-on:click="createCard" :disabled="number.length != 19">{{ $t('account.snap') }}</button>
+                </div>
+
+                <div class="cards-group__item">
+                    <div class="create">
+                        <div class="create__i">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42">
+                                <defs />
+                                <path d="M42 19H23V0h-4v19H0v4h19v19h4V23h19z" />
+                            </svg> -->
+                            <form class="card-form" v-on:submit.prevent>
+                                <label class="card-form__label" for="number">
+                                    <input class="card-form__input" type="text" v-mask="'#### #### #### ####'" v-model="number" placeholder="#### #### #### ####" />
+                                </label>
+                            </form>
+                            <span class="create__status" v-if="number.length == 19">{{ $t('account.cardsuccess') }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-items" v-else>
             <div class="cards-items__item cards-group">
                 <div class="cards-group__item">
-                    <p>{{ wallets.currency || 'USD' }} {{ $t('account.balance') }}</p>
+                    <p>{{ $t('account.balance') }}</p>
 
                     <p>
-                        <span>{{ wallets.balance || 0 }}</span>
+                        <span>{{ wallets.balance || 0 }}{{ wallets.currency || 'USD' }}</span>
                         {{ $t('account.card-number') }}: №
                         <b>{{ cards.card_number || 'unavailable' }}</b>
                     </p>
-
-                    <button class="cards-items__link" @click="getPin()">
+                    <button class="cards-items__link" @click="generatePin()">
                         {{ $t('account.pin') }}
+                    </button>
+
+                    <button class="cards-items__link" @click="detachCard()">
+                        Отвязать карту
                     </button>
 
                     <button v-if="cards.alipay_address" class="cards-items__button" @click="showAlipay = !showAlipay">{{ $t('account.top-up') }} ALIPAY</button>
@@ -55,52 +88,52 @@
         </div>
 
         <div class="cards-items">
-            <div class="cards-items__item">
+            <div class="cards-items__item" v-if="cards.btc_address">
                 <p>{{ $t('account.top-up') }} Bitcoin</p>
 
                 <p>
-                    <small>{{ cards.btc_address || 'unavailable' }}</small>
+                    <small>{{ cards.btc_address }}</small>
                 </p>
 
                 <button class="cards-items__button" @click="showBTC = !showBTC">{{ $t('account.generate') }} QR</button>
             </div>
 
-            <div class="cards-items__item">
+            <div class="cards-items__item" v-if="cards.eth_address">
                 <p>{{ $t('account.top-up') }} Ethereum</p>
 
                 <p>
-                    <small>{{ cards.eth_address || 'unavailable' }}</small>
+                    <small>{{ cards.eth_address }}</small>
                 </p>
 
                 <button class="cards-items__button" @click="showETH = !showETH">{{ $t('account.generate') }} QR</button>
             </div>
         </div>
 
-        <div class="cards-items" v-if="cards.usdt_omni_address || cards.usdt_eth_address">
+        <div class="cards-items">
             <div class="cards-items__item" v-if="cards.usdt_omni_address">
                 <p>{{ $t('account.top-up') }} USDT OMNI</p>
 
                 <p>
-                    <small>{{ cards.usdt_omni_address || 'unavailable' }}</small>
+                    <small>{{ cards.usdt_omni_address }}</small>
                 </p>
 
-                <button v-if="cards.usdt_omni_address" class="cards-items__button" @click="showUsdtOmni = !showUsdtOmni">{{ $t('account.generate') }} QR</button>
+                <button class="cards-items__button" @click="showUsdtOmni = !showUsdtOmni">{{ $t('account.generate') }} QR</button>
             </div>
 
             <div class="cards-items__item" v-if="cards.usdt_eth_address">
                 <p>{{ $t('account.top-up') }} USDT ETH</p>
 
                 <p>
-                    <small>{{ cards.usdt_eth_address || 'unavailable' }}</small>
+                    <small>{{ cards.usdt_eth_address }}</small>
                 </p>
 
-                <button v-if="cards.usdt_eth_address" class="cards-items__button" @click="showUsdtEth = !showUsdtEth">{{ $t('account.generate') }} QR</button>
+                <button class="cards-items__button" @click="showUsdtEth = !showUsdtEth">{{ $t('account.generate') }} QR</button>
             </div>
         </div>
 
         <popup v-if="showPin" @close="showPin = false">
             <div slot="body">
-                <span>{{ pincode }}</span>
+                <span>{{ pin }}</span>
             </div>
         </popup>
 
@@ -121,13 +154,12 @@
 </template>
 
 <script>
-import popup from '@/components/popup.vue'
-import progressBar from '@/components/progressBar.vue'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
     components: {
-        popup,
-        progressBar,
+        popup: () => import('@/components/popup.vue'),
+        progressBar: () => import('@/components/progressBar.vue'),
     },
     data() {
         return {
@@ -137,26 +169,36 @@ export default {
             showETH: false,
             showUsdtEth: false,
             showUsdtOmni: false,
+            error: '',
+            number: '',
         }
     },
     methods: {
-        async getPin() {
-            const result = await this.$store.dispatch('pincode').then(() => (this.showPin = true))
+        ...mapActions(['cardCreate', 'cardDetach', 'getPin', 'getCards']),
+        createCard() {
+            this.cardCreate({ number: this.number.replace(/\s+/g, '') }).then(this.cardData())
+        },
+        detachCard() {
+            this.cardDetach().then(this.cardData())
+        },
+        generatePin() {
+            this.getPin().then(() => (this.showPin = true))
+        },
+        cardData() {
+            // return the Promise from the action
+            this.getCards({ self: this })
         },
     },
     computed: {
-        pincode() {
-            return this.$store.state.pincode
-        },
-        cards() {
-            return this.$store.state.cards
-        },
-        wallets() {
-            return this.$store.state.wallets
-        },
+        ...mapState({
+            cards: state => state.cards || false,
+            pin: state => state.pin,
+            wallets: state => state.wallets,
+        }),
     },
-    async created() {
-        const result = await this.$store.dispatch('cards')
+    async mounted() {
+        // If we didn't already do it on the server we fetch the item (will first show the loading text)
+        await this.cardData()
     },
 }
 </script>

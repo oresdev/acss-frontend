@@ -4,17 +4,20 @@
     grid-auto-columns: 1fr;
     grid-template-rows: 1fr;
 
-    margin: 2em 0;
+    margin: 0;
 
     &__row {
-        margin: 1em 0;
+        margin: 2em 0 1em;
     }
 
     &__col {
         background-color: hsla(222, 25%, 10%, 0.4);
+        background-size: cover;
+        background-position: center;
         margin: 1em 0;
         padding: 4em 2em;
         display: grid;
+        align-items: center;
         grid-gap: 1em;
         grid-auto-columns: 1fr;
         grid-template-rows: 1fr;
@@ -71,6 +74,9 @@
             border: none;
         }
     }
+    img {
+        margin: 2em 0;
+    }
     button {
         background-color: $color-brand;
 
@@ -90,4 +96,9 @@
             opacity: 0.8;
         }
     }
+}
+
+.success {
+    background-color: $color-success;
+    padding: 2em;
 }

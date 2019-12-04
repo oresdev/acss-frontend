@@ -53,7 +53,9 @@
         "pin": "Show Pin",
         "top-up": "Deposit",
         "transactions": "Transactions list",
-        "comming": "In process"
+        "comming": "In process",
+        "cardsuccess": "Now you can snap your card",
+        "snap": "Snap your card"
     },
     "transactions": {
         "title": "Remittances",
@@ -178,5 +180,8 @@
     },
     "404": {
         "description": "Page not found."
+    },
+    "success": {
+        "description": "Data sent successfully"
     }
 }

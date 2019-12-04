@@ -12,15 +12,18 @@ export default new Vuex.Store({
         status: '',
         cards: {},
         wallets: {},
-        pincode: {},
+        pin: {},
         profile: {},
         user: {},
+        errors: {},
         transactions: {},
     },
     mutations: {
         dataCards(state, cards) {
             state.cards = cards
-            state.wallets = cards.wallets[0]
+        },
+        dataWallets(state, wallets) {
+            state.wallets = wallets
         },
         setProf(state, profile) {
             state.profile = profile
@@ -40,16 +43,16 @@ export default new Vuex.Store({
             state.status = 'success'
             state.user = user
         },
-        sending_error(state) {
-            state.status = 'error'
+        sending_error(state, error) {
+            state.status = false
         },
         logout(state) {
             state.status = ''
             state.token = ''
             state.email = ''
         },
-        pincode(state, pincode) {
-            state.pincode = pincode
+        dataPin(state, pin) {
+            state.pin = pin
         },
         transactions(state, transactions) {
             state.transactions = transactions
@@ -119,6 +122,50 @@ export default new Vuex.Store({
                     })
             })
         },
+        cardCreate({ commit }, data) {
+            return new Promise(resolve => {
+                const email = localStorage.getItem('user_email')
+                const token = localStorage.getItem('authentication_token')
+
+                axios({
+                    url: 'https://cards.acss.tech/api/v1/cards/attach.json',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-USER-EMAIL': email,
+                        'X-USER-TOKEN': token,
+                    },
+                    data,
+                    method: 'POST',
+                }).then(response => {
+                    resolve(response)
+                })
+            })
+        },
+        cardDetach({ commit }) {
+            return new Promise((resolve, reject) => {
+                const email = localStorage.getItem('user_email')
+                const token = localStorage.getItem('authentication_token')
+
+                axios({
+                    url: 'https://cards.acss.tech/api/v1/cards/detach.json',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-USER-EMAIL': email,
+                        'X-USER-TOKEN': token,
+                    },
+                    method: 'POST',
+                })
+                    .then(resp => {
+                        router.push('/')
+                        resolve(resp)
+                    })
+                    .catch(err => {
+                        commit('auth_error', err)
+
+                        reject(err)
+                    })
+            })
+        },
         settings({ commit }, user) {
             return new Promise((resolve, reject) => {
                 const email = localStorage.getItem('user_email')
@@ -150,7 +197,7 @@ export default new Vuex.Store({
                     })
             })
         },
-        profile({ commit }, user) {
+        setProfile({ commit }, user) {
             return new Promise((resolve, reject) => {
                 const email = localStorage.getItem('user_email')
                 const token = localStorage.getItem('authentication_token')
@@ -169,23 +216,23 @@ export default new Vuex.Store({
                 })
                     .then(resp => {
                         const user = resp.data.user
+                        const error = resp.data.errors
 
                         commit('sending_success', user)
 
                         resolve(resp)
                     })
-                    .catch(err => {
-                        commit('sending_error', err)
-
+                    .catch(error => {
+                        // commit('sending_error', err)
                         // localStorage.removeItem('authentication_token')
                         // localStorage.removeItem('user_email')
 
-                        reject(err)
+                        reject(error)
                     })
             })
         },
 
-        getProf({ commit }) {
+        getProfile({ commit }) {
             return new Promise((resolve, reject) => {
                 const email = localStorage.getItem('user_email')
                 const token = localStorage.getItem('authentication_token')
@@ -205,7 +252,7 @@ export default new Vuex.Store({
                         resolve(resp)
                     })
                     .catch(err => {
-                        commit('auth_error', err)
+                        commit('sending_error', err)
 
                         // localStorage.removeItem('authentication_token')
                         // localStorage.removeItem('user_email')
@@ -215,19 +262,31 @@ export default new Vuex.Store({
             })
         },
         logout({ commit }) {
-            return new Promise((resolve, reject) => {
-                commit('logout')
+            return new Promise(resolve => {
+                const email = localStorage.getItem('user_email')
+                const token = localStorage.getItem('authentication_token')
 
+                axios({
+                    url: 'https://cards.acss.tech/api/v1/users/sign_out.json',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-USER-EMAIL': email,
+                        'X-USER-TOKEN': token,
+                    },
+                    method: 'DELETE',
+                })
                 localStorage.removeItem('authentication_token')
                 localStorage.removeItem('user_email')
                 localStorage.removeItem('language')
 
                 delete axios.defaults.headers.common['Authorization']
-
+                commit('dataCards', '')
+                commit('dataWallets', '')
+                commit('logout')
                 resolve()
             })
         },
-        cards({ commit }) {
+        getCards({ commit }) {
             return new Promise((resolve, reject) => {
                 const email = localStorage.getItem('user_email')
                 const token = localStorage.getItem('authentication_token')
@@ -243,6 +302,10 @@ export default new Vuex.Store({
                     .then(resp => {
                         const cards = resp.data.cards[0]
                         commit('dataCards', cards)
+                        if (cards) {
+                            const wallets = cards.wallets[0]
+                            commit('dataWallets', wallets)
+                        }
 
                         resolve(resp)
                     })
@@ -256,8 +319,8 @@ export default new Vuex.Store({
                     })
             })
         },
-        pincode({ commit, state }, cards) {
-            return new Promise((resolve, reject) => {
+        getPin({ commit, state }) {
+            return new Promise(resolve => {
                 const email = localStorage.getItem('user_email')
                 const token = localStorage.getItem('authentication_token')
                 const uuid = state.cards.uuid
@@ -269,24 +332,14 @@ export default new Vuex.Store({
                         'X-USER-EMAIL': email,
                         'X-USER-TOKEN': token,
                     },
+                }).then(resp => {
+                    commit('dataPin', resp.data.pin)
+
+                    resolve(resp)
                 })
-                    .then(resp => {
-                        const pincode = resp.data.pin
-                        commit('pincode', pincode)
-
-                        resolve(resp)
-                    })
-                    .catch(err => {
-                        commit('auth_error', err)
-
-                        // localStorage.removeItem('authentication_token')
-                        // localStorage.removeItem('user_email')
-
-                        reject(err)
-                    })
             })
         },
-        transactions({ commit, state }, wallets) {
+        getTransactions({ commit, state }) {
             return new Promise((resolve, reject) => {
                 const email = localStorage.getItem('user_email')
                 const token = localStorage.getItem('authentication_token')

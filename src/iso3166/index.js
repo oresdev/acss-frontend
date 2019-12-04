@@ -18,6 +18,12 @@
  */
 module.exports = [
     {
+        country: 'China',
+        alpha2: 'CN',
+        alpha3: 'CHN',
+        numeric: '156',
+    },
+    {
         country: 'Afghanistan',
         alpha2: 'AF',
         alpha3: 'AFG',
@@ -286,12 +292,6 @@ module.exports = [
         alpha2: 'CL',
         alpha3: 'CHL',
         numeric: '152',
-    },
-    {
-        country: 'China',
-        alpha2: 'CN',
-        alpha3: 'CHN',
-        numeric: '156',
     },
     {
         country: 'Christmas Island',

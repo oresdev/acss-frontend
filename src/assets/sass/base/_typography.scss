@@ -2,10 +2,10 @@
  * Basic typography style for copy text
  */
 body {
-    font: normal 11pt / 150% $font-stack;
+    font: normal 11pt / 1.6 $font-stack;
 
     @include breakpoints(phone) {
-        font: normal 9.2pt / 150% $font-stack;
+        font: normal 10pt / 1.6 $font-stack;
     }
 }
 
@@ -23,10 +23,22 @@ h6 {
 
 h1 {
     font-size: 36pt;
+    @include breakpoints(tablet) {
+        font-size: 28pt;
+    }
+    @include breakpoints(phone) {
+        font-size: 22pt;
+    }
 }
 
 h2 {
     font-size: 30pt;
+    @include breakpoints(tablet) {
+        font-size: 22pt;
+    }
+    @include breakpoints(phone) {
+        font-size: 18pt;
+    }
 }
 
 h3 {
