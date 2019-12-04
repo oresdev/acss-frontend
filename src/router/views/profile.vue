@@ -190,7 +190,6 @@ export default {
             objects: {
                 iso: iso,
             },
-            error: '',
             firstname: '',
             lastname: '',
             middlename: '',
@@ -219,6 +218,10 @@ export default {
             profile: state => state.profile,
             status: state => state.status,
         }),
+        ...mapGetters(['authenticationError']),
+        error() {
+            return this.authenticationError
+        },
         date() {
             var newDate = this.profile.dateofbirth
             if (newDate) {

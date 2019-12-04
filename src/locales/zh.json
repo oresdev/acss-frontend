@@ -55,7 +55,8 @@
         "transactions": "交易清单",
         "comming": "开发中",
         "cardsuccess": "现在可以绑定您的银行卡",
-        "snap": "绑定银行卡"
+        "snap": "绑定银行卡",
+        "detach": "解绑银行卡"
     },
     "transactions": {
         "title": "汇款",
@@ -100,7 +101,7 @@
                 "gender": "你的性别",
                 "occupation": "工作性质",
                 "date-of-birth": "出生日期",
-                "nationality": "国民隶属关系",
+                "nationality": "国籍",
                 "cell-code": "电话代码运营商代码",
                 "cell-number": "电话号码",
                 "postcode": "邮政编码",

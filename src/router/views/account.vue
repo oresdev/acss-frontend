@@ -9,7 +9,7 @@
         </div>
 
         <div class="cards-items" v-if="cards == false">
-            <div class="cards-items__item cards-group centered">
+            <div class="cards-items__item cards-group centered" v-if="error == false">
                 <div class="cards-group__item">
                     <article>
                         <p>{{ $t('account.description') }}</p>
@@ -36,8 +36,8 @@
             </div>
         </div>
 
-        <div class="cards-items" v-else>
-            <div class="cards-items__item cards-group">
+        <div class="cards-items" v-if="cards != false">
+            <div class="cards-items__item cards-group" v-if="error == false">
                 <div class="cards-group__item">
                     <p>{{ $t('account.balance') }}</p>
 
@@ -51,7 +51,7 @@
                     </button>
 
                     <button class="cards-items__link" @click="detachCard()">
-                        Отвязать карту
+                        {{ $t('account.detach') }}
                     </button>
 
                     <button v-if="cards.alipay_address" class="cards-items__button" @click="showAlipay = !showAlipay">{{ $t('account.top-up') }} ALIPAY</button>
@@ -169,17 +169,16 @@ export default {
             showETH: false,
             showUsdtEth: false,
             showUsdtOmni: false,
-            error: '',
             number: '',
         }
     },
     methods: {
         ...mapActions(['cardCreate', 'cardDetach', 'getPin', 'getCards']),
-        createCard() {
-            this.cardCreate({ number: this.number.replace(/\s+/g, '') }).then(this.cardData())
+        async createCard() {
+            await this.cardCreate({ number: this.number.replace(/\s+/g, '') }).then(this.cardData())
         },
-        detachCard() {
-            this.cardDetach().then(this.cardData())
+        async detachCard() {
+            await this.cardDetach().then((this.$store.state.cards = false))
         },
         generatePin() {
             this.getPin().then(() => (this.showPin = true))
@@ -195,6 +194,10 @@ export default {
             pin: state => state.pin,
             wallets: state => state.wallets,
         }),
+        ...mapGetters(['authenticationError']),
+        error() {
+            return this.authenticationError
+        },
     },
     async mounted() {
         // If we didn't already do it on the server we fetch the item (will first show the loading text)

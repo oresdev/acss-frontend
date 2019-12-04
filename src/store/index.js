@@ -15,7 +15,7 @@ export default new Vuex.Store({
         pin: {},
         profile: {},
         user: {},
-        errors: {},
+        error: '',
         transactions: {},
     },
     mutations: {
@@ -38,6 +38,9 @@ export default new Vuex.Store({
         },
         auth_error(state) {
             state.status = 'error'
+        },
+        error(state, error) {
+            state.error = error
         },
         sending_success(state, user) {
             state.status = 'success'
@@ -142,7 +145,7 @@ export default new Vuex.Store({
             })
         },
         cardDetach({ commit }) {
-            return new Promise((resolve, reject) => {
+            return new Promise(resolve => {
                 const email = localStorage.getItem('user_email')
                 const token = localStorage.getItem('authentication_token')
 
@@ -154,16 +157,9 @@ export default new Vuex.Store({
                         'X-USER-TOKEN': token,
                     },
                     method: 'POST',
+                }).then(resp => {
+                    resolve(resp)
                 })
-                    .then(resp => {
-                        router.push('/')
-                        resolve(resp)
-                    })
-                    .catch(err => {
-                        commit('auth_error', err)
-
-                        reject(err)
-                    })
             })
         },
         settings({ commit }, user) {
@@ -252,7 +248,7 @@ export default new Vuex.Store({
                         resolve(resp)
                     })
                     .catch(err => {
-                        commit('sending_error', err)
+                        commit('error', err.response.data.error)
 
                         // localStorage.removeItem('authentication_token')
                         // localStorage.removeItem('user_email')
@@ -282,6 +278,7 @@ export default new Vuex.Store({
                 delete axios.defaults.headers.common['Authorization']
                 commit('dataCards', '')
                 commit('dataWallets', '')
+                commit('error', '')
                 commit('logout')
                 resolve()
             })
@@ -310,7 +307,7 @@ export default new Vuex.Store({
                         resolve(resp)
                     })
                     .catch(err => {
-                        commit('auth_error', err)
+                        commit('error', err.response.data.error)
 
                         // localStorage.removeItem('authentication_token')
                         // localStorage.removeItem('user_email')
@@ -374,5 +371,6 @@ export default new Vuex.Store({
         isLoggedIn: state => !!state.token,
         authStatus: state => state.status,
         getProfile: state => state.profile, // If should decode request data
+        authenticationError: state => state.error, // If should decode request data
     },
 })

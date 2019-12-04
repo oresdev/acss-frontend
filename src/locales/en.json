@@ -55,7 +55,8 @@
         "transactions": "Transactions list",
         "comming": "In process",
         "cardsuccess": "Now you can snap your card",
-        "snap": "Snap your card"
+        "snap": "Snap your card",
+        "detach": "Detach card"
     },
     "transactions": {
         "title": "Remittances",
@@ -151,12 +152,12 @@
             "title": "Passport",
             "description": "Passport of a citizen of the Republic of China, an official document issued to citizens of the PRC, registered as residents of mainland China, to verify their identity and for traveling abroad.",
             "form": {
-                "id-front": "Front side of the card",
-                "id-back": "Back side of the card",
-                "id-selfie": "Selfie photo with ID card",
+                "id-front": "Front side of the ID-card",
+                "id-back": "Back side of the ID-card",
+                "id-selfie": "Selfie photo with ID-card",
                 "signature": "Photo of your signature",
                 "details": "Please upload an image of your identity document. Make sure the entire document can be seen, including edges and corners. If your image does not meet these requirements, your application will be rejected.",
-                "pid-number": "ID Card Number",
+                "pid-number": "ID-Card Number",
                 "poa-number": "Passport Number (Optional)",
                 "back": "Previous step",
                 "submit": "Submit"
