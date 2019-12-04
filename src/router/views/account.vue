@@ -51,10 +51,6 @@
                         {{ $t('account.pin') }}
                     </button>
 
-                    <button class="cards-items__link" @click="detachCard()">
-                        {{ $t('account.detach') }}
-                    </button>
-
                     <button v-if="cards.alipay_address" class="cards-items__button" @click="showAlipay = !showAlipay">{{ $t('account.top-up') }} ALIPAY</button>
 
                     <router-link class="cards-items__button" to="/transactions" tag="button">{{ $t('account.transactions') }}</router-link>
