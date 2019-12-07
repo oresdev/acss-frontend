@@ -104,6 +104,16 @@
 
                 <button class="cards-items__button" @click="showETH = !showETH">{{ $t('account.generate') }} QR</button>
             </div>
+
+            <div class="cards-items__item" v-if="cards.usdt_address">
+                <p>{{ $t('account.top-up') }} USDT</p>
+
+                <p>
+                    <small>{{ cards.usdt_address }}</small>
+                </p>
+
+                <button class="cards-items__button" @click="showUsdt = !showUsdt">{{ $t('account.generate') }} QR</button>
+            </div>
         </div>
 
         <div class="cards-items">
@@ -144,6 +154,8 @@
 
         <popup v-if="showETH" v-bind:qr_data="cards.eth_address" @close="showETH = false"> </popup>
 
+        <popup v-if="showUsdt" v-bind:qr_data="cards.usdt_address" @close="showUsdt = false"> </popup>
+
         <popup v-if="showUsdtOmni" v-bind:qr_data="cards.usdt_omni_address" @close="showUsdtOmni = false"> </popup>
 
         <popup v-if="showUsdtEth" v-bind:qr_data="cards.usdt_eth_address" @close="showUsdtEth = false"> </popup>
@@ -164,6 +176,7 @@ export default {
             showAlipay: false,
             showBTC: false,
             showETH: false,
+            showUsdt: false,
             showUsdtEth: false,
             showUsdtOmni: false,
             number: '',
