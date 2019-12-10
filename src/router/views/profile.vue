@@ -29,7 +29,7 @@
 
                     <label for="dateofbirth">
                         {{ $t('profile.information.form.date-of-birth') }}
-                        <input type="text" id="dateofbirth" name="dateofbirth" placeholder="dd.mm.yyyy" v-bind:value="date" required />
+                        <input type="text" id="dateofbirth" name="dateofbirth" v-mask="'##.##.####'" placeholder="DD.MM.YYYY" v-bind:value="date" required />
                     </label>
 
                     <label for="firstname_local">
@@ -80,12 +80,12 @@
                 <div class="form__col form__col--3">
                     <label for="cell_number_country_code">
                         {{ $t('profile.information.form.cell-code') }}
-                        <input type="text" id="cell_number_country_code" name="cell_number_country_code" placeholder="000" v-bind:value="profile.cell_number_country_code" required />
+                        <input type="text" id="cell_number_country_code" name="cell_number_country_code" v-mask="'###'" placeholder="###" v-bind:value="profile.cell_number_country_code" required />
                     </label>
 
                     <label for="cell_number">
                         {{ $t('profile.information.form.cell-number') }}
-                        <input type="text" id="cell_number" name="cell_number" placeholder="00000000000" v-bind:value="profile.cell_number" required />
+                        <input type="text" id="cell_number" name="cell_number" v-mask="'############'" placeholder="############" v-bind:value="profile.cell_number" required />
                     </label>
                 </div>
             </div>
@@ -105,7 +105,7 @@
 
                     <label for="postalcode">
                         {{ $t('profile.information.form.postcode') }}
-                        <input type="text" id="postalcode" name="postalcode" placeholder="000000" v-bind:value="profile.postalcode" required />
+                        <input type="text" id="postalcode" name="postalcode" v-mask="'######'" placeholder="######" v-bind:value="profile.postalcode" required />
                     </label>
 
                     <label class="form-select" for="country">
@@ -120,12 +120,17 @@
 
             <div class="form__row">
                 <h4>{{ $t('profile.idinfo') }}</h4>
+                <div class="form__col form__col"></div>
+            </div>
+
+            <div class="form__row">
+                <h4>{{ $t('profile.idinfo') }}</h4>
                 <div class="form__col form__col--2">
                     <label for="doc_pid_number">
                         {{ $t('profile.passport.form.pid-number') }}
                         <input type="text" id="doc_pid_number" name="doc_pid_number" v-bind:value="profile.doc_pid_number" required />
                     </label>
-                    <div class="form__col" :style="{ backgroundImage: `linear-gradient(rgba(21, 26, 38, 0.7), rgb(21, 26, 38)),url('${profile.doc_pidback_image}')` }">
+                    <div class="form__col" :style="{ backgroundImage: `linear-gradient(rgba(21, 26, 38, 0.7), rgb(21, 26, 38)),url('${profile.doc_pid_image}')` }">
                         <label for="doc_pid_image">
                             {{ $t('profile.passport.form.id-front') }}
                             <input type="file" name="doc_pid_image" id="doc_pid_image" ref="doc_pid_image" />

@@ -26,7 +26,7 @@
                             </svg> -->
                             <form class="card-form" v-on:submit.prevent>
                                 <label class="card-form__label" for="number">
-                                    <input class="card-form__input" type="text" v-model="number" placeholder="#### #### #### ####" />
+                                    <input v-mask="['#### #### #### ####']" placeholder="#### #### #### ####" class="card-form__input" v-model="number" />
                                 </label>
                             </form>
                             <span class="create__status" v-if="number.length < 19">{{ $t('account.cardtype') }}</span>

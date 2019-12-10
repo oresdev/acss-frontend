@@ -19,6 +19,11 @@ if (token) {
     Vue.prototype.$http.defaults.headers.common['Authorization'] = token
 }
 
+// https://vuejs-tips.github.io/vue-the-mask/
+import VueTheMask from 'vue-the-mask'
+
+Vue.use(VueTheMask)
+
 Vue.config.productionTip = false
 
 new Vue({
