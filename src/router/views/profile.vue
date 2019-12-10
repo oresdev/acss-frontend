@@ -8,7 +8,33 @@
             </div>
         </div>
 
-        <form id="form" class="form" enctype="multipart/form-data" v-on:submit.prevent="profileData">
+        <div v-if="!checked">
+            <h4 v-text="$t('profile.terms.title')"></h4>
+            <article>
+                <p>{{ $t('profile.terms.d1') }}</p>
+
+                <ul class="profile__list">
+                    <li>{{ $t('profile.terms.list.t1') }}</li>
+                    <li>{{ $t('profile.terms.list.t2') }}</li>
+                    <li>{{ $t('profile.terms.list.t3') }}</li>
+                    <li>{{ $t('profile.terms.list.t4') }}</li>
+                </ul>
+
+                <p>{{ $t('profile.terms.d2') }}</p>
+                <p>{{ $t('profile.terms.d3') }}</p>
+                <p>{{ $t('profile.terms.d4') }}</p>
+            </article>
+
+            <a href="https://cards.acss.tech/kyc.pdf" download>
+                <button class="profile-form__button" type="button">{{ $t('profile.terms.link') }}</button>
+            </a>
+
+            <button class="profile-form__button" type="text" @click="backToTop">
+                {{ $t('profile.terms.form.submit') }}
+            </button>
+        </div>
+
+        <form v-if="checked" id="form" class="form" enctype="multipart/form-data" v-on:submit.prevent="profileData">
             <div class="form__row">
                 <h4>{{ $t('profile.personalinfo') }}</h4>
                 <div class="form__col form__col--3">
@@ -120,11 +146,6 @@
 
             <div class="form__row">
                 <h4>{{ $t('profile.idinfo') }}</h4>
-                <div class="form__col form__col"></div>
-            </div>
-
-            <div class="form__row">
-                <h4>{{ $t('profile.idinfo') }}</h4>
                 <div class="form__col form__col--2">
                     <label for="doc_pid_number">
                         {{ $t('profile.passport.form.pid-number') }}
@@ -193,6 +214,7 @@ const iso = require('@/iso3166')
 export default {
     data() {
         return {
+            checked: false,
             listIso: process.env.iso,
             objects: {
                 iso: iso,
@@ -255,11 +277,27 @@ export default {
                 this.$store.state.status = ''
             }, 10000)
         },
+        /**
+         * The function who make the magics
+         * @return {void}
+         */
+        backToTop() {
+            window.smoothscroll()
+            this.checked = true
+        },
     },
     async mounted() {
         // If we didn't already do it on the server we fetch the item (will first show the loading text)
         await this.getProfile()
         this.$store.state.status = ''
+
+        window.smoothscroll = () => {
+            let currentScroll = document.documentElement.scrollTop || document.body.scrollTop
+            if (currentScroll > 0) {
+                window.requestAnimationFrame(window.smoothscroll)
+                window.scrollTo(0, Math.floor(currentScroll - currentScroll / 5))
+            }
+        }
     },
 }
 </script>

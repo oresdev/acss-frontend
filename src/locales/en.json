@@ -81,6 +81,7 @@
                 "t4": "As well as for any other purposes directly or indirectly related to the issuance and maintenance of Bank cards and offering other products of the Bank, and sending me information about new products and services of the Bank and/or its counterparties."
             },
             "confirm": "Agree to the terms",
+            "link": "How to KYC",
             "form": {
                 "submit": "Continue"
             }
