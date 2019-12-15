@@ -60,12 +60,11 @@
 
                     <label for="firstname_local">
                         {{ $t('profile.information.form.localname') }}
-                        <input type="text" id="firstname_local" name="firstname_local" v-bind:value="profile.firstname_local" required />
+                        <input type="text" id="firstname_local" name="firstname_local" :maxlength="4" v-bind:value="profile.firstname_local" required />
                     </label>
 
                     <label for="lastname_local">
-                        {{ $t('profile.information.form.locallastname') }}
-                        <input type="text" id="lastname_local" name="lastname_local" v-bind:value="profile.lastname_local" required />
+                        <input type="hidden" id="lastname_local" name="lastname_local" v-bind:value="profile.lastname_local" />
                     </label>
                 </div>
 

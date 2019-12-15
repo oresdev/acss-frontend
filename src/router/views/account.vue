@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div class="cards-items">
+        <div class="cards-items" v-if="profile.doc_pid_number != null">
             <div class="cards-items__item" v-if="cards.btc_address">
                 <p>{{ $t('account.top-up') }} Bitcoin</p>
 
@@ -116,7 +116,7 @@
             </div>
         </div>
 
-        <div class="cards-items">
+        <div class="cards-items" v-if="profile.doc_pid_number != null">
             <div class="cards-items__item" v-if="cards.usdt_omni_address">
                 <p>{{ $t('account.top-up') }} USDT OMNI</p>
 
@@ -183,7 +183,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['cardCreate', 'cardDetach', 'getPin', 'getCards']),
+        ...mapActions(['cardCreate', 'cardDetach', 'getPin', 'getCards', 'getProfile']),
         async createCard() {
             await this.cardCreate({ number: this.number.replace(/\s+/g, '') }).then(this.cardData())
         },
@@ -197,12 +197,17 @@ export default {
             // return the Promise from the action
             this.getCards({ self: this })
         },
+        profileData() {
+            // return the Promise from the action
+            this.getProfile({ self: this })
+        },
     },
     computed: {
         ...mapState({
             cards: state => state.cards || false,
             pin: state => state.pin,
             wallets: state => state.wallets,
+            profile: state => state.profile,
         }),
         ...mapGetters(['authenticationError']),
         error() {
@@ -212,6 +217,7 @@ export default {
     async mounted() {
         // If we didn't already do it on the server we fetch the item (will first show the loading text)
         await this.cardData()
+        await this.profileData()
     },
 }
 </script>

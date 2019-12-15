@@ -95,7 +95,7 @@
             "description": "Form fields must be completed in English. The Bank has the right to refuse to issue a plastic card if the basic requirement of the Bank is violated. Fields marked as optional, fill in at your discretion.",
             "form": {
                 "details": "ID-card usually contains information about the cardholder in text, machine-readable and electronic forms, including his/her photo, name, personal number, signature sample, biometric information recorded in an electronic chip or magnetic stripe",
-                "localname": "First Name (native language)",
+                "localname": "Foreign Name (native language)",
                 "locallastname": "Last Name (native language)",
                 "name": "Your name",
                 "surname": "Surname",
