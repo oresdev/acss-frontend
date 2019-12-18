@@ -89,7 +89,7 @@
         "personalinfo": "Personal Information",
         "contactinfo": "Contact Information",
         "addressinfo": "Address Information",
-        "idinfo": "ID Card / Passport",
+        "idinfo": "ID Card",
         "information": {
             "title": "Basic Information",
             "description": "Form fields must be completed in English. The Bank has the right to refuse to issue a plastic card if the basic requirement of the Bank is violated. Fields marked as optional, fill in at your discretion.",
