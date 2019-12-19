@@ -189,6 +189,7 @@ export default {
             showBTC: false,
             showETH: false,
             showUsdt: false,
+            showAcss: false,
             showUsdtEth: false,
             showUsdtOmni: false,
             number: '',
