@@ -116,7 +116,7 @@
             </div>
 
             <div class="cards-items__item" v-if="cards.acss_address">
-                <p>{{ $t('account.top-up') }} USDT</p>
+                <p>{{ $t('account.top-up') }} ACSS</p>
 
                 <p>
                     <small>{{ cards.acss_address }}</small>
