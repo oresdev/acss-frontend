@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div class="cards-items" v-if="profile.status_code == 9">
+        <div class="cards-items" v-if="profile.status_code == 9 || profile.status_code == 7">
             <div class="cards-items__item" v-if="cards.btc_address">
                 <p>{{ $t('account.top-up') }} Bitcoin</p>
 
@@ -126,7 +126,7 @@
             </div>
         </div>
 
-        <div class="cards-items" v-if="profile.status_code == 9">
+        <div class="cards-items" v-if="profile.status_code == 9 || profile.status_code == 7">
             <div class="cards-items__item" v-if="cards.usdt_omni_address">
                 <p>{{ $t('account.top-up') }} USDT OMNI</p>
 
