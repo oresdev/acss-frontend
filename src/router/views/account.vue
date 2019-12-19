@@ -114,6 +114,16 @@
 
                 <button class="cards-items__button" @click="showUsdt = !showUsdt">{{ $t('account.generate') }} QR</button>
             </div>
+
+            <div class="cards-items__item" v-if="cards.acss_address">
+                <p>{{ $t('account.top-up') }} USDT</p>
+
+                <p>
+                    <small>{{ cards.acss_address }}</small>
+                </p>
+
+                <button class="cards-items__button" @click="showAcss = !showAcss">{{ $t('account.generate') }} QR</button>
+            </div>
         </div>
 
         <div class="cards-items" v-if="profile.status_code == 9">
@@ -155,6 +165,8 @@
         <popup v-if="showETH" v-bind:qr_data="cards.eth_address" @close="showETH = false"> </popup>
 
         <popup v-if="showUsdt" v-bind:qr_data="cards.usdt_address" @close="showUsdt = false"> </popup>
+
+        <popup v-if="showAcss" v-bind:qr_data="cards.acss_address" @close="showAcss = false"> </popup>
 
         <popup v-if="showUsdtOmni" v-bind:qr_data="cards.usdt_omni_address" @close="showUsdtOmni = false"> </popup>
 
