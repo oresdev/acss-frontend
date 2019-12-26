@@ -8,7 +8,7 @@
                     "link": "account"
                 },
                 {
-                    "title": "Wallet",
+                    "title": "Кошелек",
                     "link": "wallets"
                 },
                 {
@@ -64,7 +64,11 @@
         "detach": "Отвязать карту"
     },
     "wallets": {
-        "title": "Кошелек"
+        "title": "ACSS Кошелек",
+        "topup": "Адрес пополнения",
+        "transaction": "Переводы",
+        "withdrawal": "Вывод средств",
+        "transfer": "Перевести на карту"
     },
     "transactions": {
         "title": "Переводы",

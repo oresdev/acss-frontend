@@ -1,6 +1,6 @@
 <template>
     <section class="cards">
-        <h2>ACSS Wallet</h2>
+        <h2 v-text="$t('wallets.title')"></h2>
 
         <div class="status" v-if="error">
             <div class="status__i status__i--error">
@@ -16,13 +16,13 @@
                     <p>
                         <span>{{ user.deposit_acss_income || 0 }} ACSS ( {{ user.deposit_acss_usd_equivalent || 0 }} USD )</span>
                     </p>
-                    Top-up Address: <br />
+                    <p v-text="$t('wallets.topup')"></p>
                     <p style="word-break: break-word;">{{ user.deposit_acss_address }}</p>
                     <div class="buttons-group" style="display:flex; flex-wrap:wrap;">
                         <button class="cards-items__button" @click="showAcss = !showAcss">{{ $t('account.generate') }} QR</button>
-                        <router-link class="cards-items__button" to="/wallets" tag="button" disabled v-text="`Transactions`"></router-link>
-                        <router-link class="cards-items__button" to="/wallets" tag="button" disabled v-text="`Withdrawal`"></router-link>
-                        <router-link class="cards-items__button" to="/wallets" tag="button" disabled v-text="`Transfer to card`"></router-link>
+                        <router-link class="cards-items__button" to="/wallets" tag="button" disabled v-text="$t('wallets.transaction')"></router-link>
+                        <router-link class="cards-items__button" to="/wallets" tag="button" disabled v-text="$t('wallets.withdrawal')"></router-link>
+                        <router-link class="cards-items__button" to="/wallets" tag="button" disabled v-text="$t('wallets.transfer')"></router-link>
                     </div>
                 </div>
             </div>

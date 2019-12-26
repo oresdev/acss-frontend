@@ -8,7 +8,7 @@
                     "link": "account"
                 },
                 {
-                    "title": "Wallet",
+                    "title": "钱包",
                     "link": "wallets"
                 },
                 {
@@ -62,6 +62,13 @@
         "cardtype": "请在此处输入卡号",
         "snap": "绑定银行卡",
         "detach": "解绑银行卡"
+    },
+    "wallets": {
+        "title": "ACSS 钱包",
+        "topup": "充值地址",
+        "transaction": "汇款",
+        "withdrawal": "提取资金",
+        "transfer": "银行卡存款"
     },
     "transactions": {
         "title": "汇款",

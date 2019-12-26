@@ -63,6 +63,13 @@
         "snap": "Snap your card",
         "detach": "Detach card"
     },
+    "wallets": {
+        "title": "ACSS Wallet",
+        "topup": "Top-up Address",
+        "transaction": "Transactions",
+        "withdrawal": "Withdrawals",
+        "transfer": "Transfer"
+    },
     "transactions": {
         "title": "Remittances",
         "description": "Card Operations",
