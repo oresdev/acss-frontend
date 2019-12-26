@@ -26,6 +26,14 @@ let router = new Router({
             },
         },
         {
+            path: '/wallets',
+            name: 'wallets',
+            component: () => import('@/router/views/wallets.vue'),
+            meta: {
+                requiresAuth: true,
+            },
+        },
+        {
             path: '/profile',
             name: 'profile',
             component: () => import('@/router/views/profile.vue'),

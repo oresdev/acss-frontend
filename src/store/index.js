@@ -28,6 +28,9 @@ export default new Vuex.Store({
         setProf(state, profile) {
             state.profile = profile
         },
+        setUserData(state, user) {
+            state.user = user
+        },
         auth_request(state) {
             state.status = 'loading'
         },
@@ -185,6 +188,30 @@ export default new Vuex.Store({
 
                         router.push('/')
                         resolve()
+                    })
+                    .catch(err => {
+                        commit('auth_error', err)
+
+                        reject(err)
+                    })
+            })
+        },
+        getUserData({ commit }) {
+            return new Promise((resolve, reject) => {
+                const email = localStorage.getItem('user_email')
+                const token = localStorage.getItem('authentication_token')
+
+                axios({
+                    url: 'https://cards.acss.tech/api/v1/users/me.json',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-USER-EMAIL': email,
+                        'X-USER-TOKEN': token,
+                    },
+                    method: 'GET',
+                })
+                    .then(resp => {
+                        commit('setUserData', resp.data.user)
                     })
                     .catch(err => {
                         commit('auth_error', err)

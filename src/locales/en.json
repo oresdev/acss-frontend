@@ -8,6 +8,10 @@
                     "link": "account"
                 },
                 {
+                    "title": "Wallet",
+                    "link": "wallets"
+                },
+                {
                     "title": "KYC",
                     "link": "profile"
                 },

@@ -8,6 +8,10 @@
                     "link": "account"
                 },
                 {
+                    "title": "Wallet",
+                    "link": "wallets"
+                },
+                {
                     "title": "KYC",
                     "link": "profile"
                 },
@@ -58,6 +62,9 @@
         "cardtype": "Введите номер карты в это поле",
         "snap": "Привязать карту",
         "detach": "Отвязать карту"
+    },
+    "wallets": {
+        "title": "Кошелек"
     },
     "transactions": {
         "title": "Переводы",
