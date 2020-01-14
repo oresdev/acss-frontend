@@ -1,6 +1,6 @@
 <p align="center">
   <br>
-  <img width="400" src="./src/assets/images/logo.svg" alt="logo of vue-awesome repository">
+  <img width="400" src="./src/assets/images/logo.svg" alt="logo of this repository">
   <br>
   <br>
 </p>
@@ -14,22 +14,6 @@ Automatic Cross-chain Settlement System front-end.
 
 - [Documentation](https://github.com/oreshkindev/acss-frontend)
 
-
-## Getting started
-
-```bash
-# Clone the project
-git clone https://github.com/oreshkindev/acss-frontend.git
-
-# Enter the project directory
-cd acss-frontend
-
-# Install dependency
-npm install
-
-# Compiles and hot-reloads for development
-npm run serve
-```
 
 [Push Me](https://t.me/oreshkin_dev) for more information
 
