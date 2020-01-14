@@ -20,7 +20,7 @@
 
 ## 变更清单
 
-[发行说明]（）中描述了每个发行版的详细更改。(https://github.com/oreshkindev/acss-frontend/releases).
+[发行说明](https://github.com/oreshkindev/acss-frontend/releases)中描述了每个发行版的详细更改。
 
 
 ## 预览
