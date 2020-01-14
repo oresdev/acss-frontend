@@ -1,0 +1,89 @@
+table {
+    @include size(1px, 100%);
+
+    a {
+        color: $color--text-muted;
+
+        @include breakpoints(phone) {
+            @include font(11px, 21px);
+        }
+
+        &:hover {
+            color: $color--text;
+        }
+    }
+
+    thead {
+        @include breakpoints(phone) {
+            display: none;
+        }
+    }
+
+    th {
+        color: $color--text-muted;
+        font-weight: 300;
+
+        &:last-child {
+            text-align: right;
+
+            @include breakpoints(phone) {
+                text-align: left;
+            }
+        }
+    }
+
+    tr {
+        text-align: left;
+        @include breakpoints(phone) {
+            display: block;
+            margin: 0 0 1em;
+
+            &:last-child {
+                td {
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    td {
+        @include font(14px, 42px, 300);
+
+        text-align: left;
+
+        &:last-child {
+            text-align: right;
+        }
+
+        @include breakpoints(phone) {
+            display: block;
+
+            @include font(11px, 21px);
+
+            &:last-child {
+                text-align: left;
+                border-bottom: 1px solid hsla(207, 8%, 27%, 0.3);
+                padding: 0 0 1em;
+            }
+
+            &::before {
+                content: attr(data-label);
+
+                color: $color--text-muted;
+
+                float: left;
+
+                padding: 0.6em 0;
+
+                width: 100%;
+
+                @include breakpoints(phone) {
+                    @include font(12px, 26px, 300);
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

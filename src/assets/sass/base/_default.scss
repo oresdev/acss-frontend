@@ -1,0 +1,64 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+  * Make all elements from the DOM inherit from the parent box-sizing
+  * Since `*` has a specificity of 0, it does not override the `html` value
+  * making all elements inheriting from the root box-sizing value
+  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+  */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    @include size(100%, 100%);
+
+    user-select: none;
+}
+
+body {
+    background-attachment: fixed;
+    background-color: $color--background;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.6' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+
+    color: $color--text;
+
+    margin: 0 auto;
+    max-width: $template--max-width;
+
+    overflow-x: hidden;
+}
+
+#app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+
+    align-items: center;
+
+    min-height: 100%;
+    position: relative;
+}
+
+figure {
+    margin: auto 0;
+
+    svg {
+        vertical-align: middle;
+    }
+
+    img {
+        vertical-align: middle;
+        width: 100%;
+    }
+}

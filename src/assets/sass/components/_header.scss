@@ -1,0 +1,121 @@
+.header {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 3em 1em 0;
+
+    .icon {
+        cursor: pointer;
+
+        padding: 0;
+
+        &:hover {
+            opacity: $template--opacity;
+        }
+
+        &__brand {
+            fill: $color--brand;
+
+            margin: 0 auto 0 0;
+        }
+
+        &__nav {
+            fill: $color--text;
+
+            @include breakpoints(phone) {
+                display: block;
+            }
+        }
+    }
+
+    .nav {
+        align-self: center;
+
+        span {
+            cursor: pointer;
+        }
+
+        &__i {
+            color: $color--text;
+            display: inline-block;
+            margin: 0 0 0 2em;
+
+            &:hover {
+                opacity: $template--opacity;
+            }
+
+            @include breakpoints(phone) {
+                display: block;
+                margin: 1em 0 0;
+            }
+        }
+        @include breakpoints(phone) {
+            display: none;
+            flex-basis: 100%;
+        }
+    }
+
+    .locale {
+        align-self: center;
+
+        &__i {
+            margin: 0 0 0 2em;
+
+            @include breakpoints(phone) {
+                margin: 1em 0 0;
+            }
+        }
+        &__link {
+            color: $color--text;
+            cursor: pointer;
+
+            outline: none;
+            text-transform: capitalize;
+
+            &:hover {
+                opacity: $template--opacity;
+            }
+        }
+
+        .submenu {
+            position: absolute;
+
+            &__i {
+                margin: 0.8em 0 0;
+
+                @include breakpoints(phone) {
+                    margin: 1em 0 0 0;
+                }
+            }
+
+            &__link {
+                color: $color--text;
+                cursor: pointer;
+
+                outline: none;
+                text-transform: capitalize;
+
+                &:hover {
+                    opacity: $template--opacity;
+                }
+            }
+            @include breakpoints(phone) {
+                position: relative;
+            }
+        }
+
+        @include breakpoints(phone) {
+            display: none;
+
+            flex-basis: 100%;
+        }
+    }
+}
+
+.visible {
+    display: block !important;
+}
+
+.router-link-exact-active {
+    color: $color--brand !important;
+}

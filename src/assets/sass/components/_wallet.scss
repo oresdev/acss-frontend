@@ -1,0 +1,21 @@
+.wallet {
+    @extend .card;
+
+    &__link {
+        @extend h4;
+
+        margin: 0 !important;
+
+        &:hover {
+            opacity: $template--opacity;
+        }
+    }
+
+    &__address {
+        margin: 1em 0;
+        word-break: break-all;
+    }
+
+    &__tumbler {
+    }
+}

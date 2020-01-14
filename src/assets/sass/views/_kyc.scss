@@ -1,0 +1,14 @@
+.kyc {
+    .grid {
+        &__i {
+            @extend .card;
+
+            padding: 3em;
+
+            @include breakpoints(phone) {
+                margin: 1em 0;
+                padding: 2em;
+            }
+        }
+    }
+}

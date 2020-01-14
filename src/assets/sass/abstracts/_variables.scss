@@ -2,20 +2,33 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-$font-stack: 'Comfortaa', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+/**
+ * Basic template settings
+ */
 
-$color-background: hsla(0, 0%, 13%, 0.62) !default;
+$template--opacity: 0.4;
 
-$color-primary: hsl(0, 0%, 92.9%) !default;
+$template--max-width: 1280px !default;
 
-$color-input: hsl(220, 4%, 57%) !default;
+$template--gap: 1em;
 
-$color-secondary: hsl(223, 22%, 16%) !default;
+$template--radius: 10px;
+/**
+  * Basic color scheme
+  */
 
-$color-brand: hsl(41.6, 56.3%, 70.4%) !default;
+$color--background: hsl(222, 24%, 16%) !default;
 
-$color-error: hsla(0, 85%, 46%, 0.2);
+$color--brand: hsl(42, 16%, 45%) !default;
 
-$color-success: hsla(133, 85%, 46%, 0.178);
+$color--text: hsla(0, 0%, 95%, 0.6) !default;
 
-$width-max: 1280px !default;
+$color--text-muted: hsla(0, 0%, 95%, 0.2) !default;
+
+$color--text-invert: hsl(0, 0%, 13%) !default;
+
+$color--visa: hsl(224, 15%, 14%) !default;
+
+$color--error: hsla(0, 51%, 47%, 0.664);
+
+$color--success: hsla(153, 48%, 49%, 0.4);

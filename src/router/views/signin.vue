@@ -1,49 +1,73 @@
 <template>
-    <section class="signin">
-        <h2>
-            {{ $t('signin.title') }}
-        </h2>
+    <section :class="[{ shake: error }, 'signin']">
+        <heading />
 
-        <article>
-            <p>
-                {{ $t('signin.description') }}
-            </p>
-        </article>
+        <form submit.prevent>
+            <fieldset class="grid col">
+                <input
+                    type="email"
+                    v-model="form.email"
+                    :placeholder="$t('form.email')"
+                    required
+                />
 
-        <form class="signin-form" v-on:submit.prevent="signin">
-            <label class="signin-form__label" for="email">
-                <input class="signin-form__input" type="email" v-model="email" :placeholder="[[$t('signin.form.email')]]" required />
-            </label>
+                <!--  -->
+                <input
+                    type="password"
+                    v-model="form.password"
+                    :placeholder="$t('form.password')"
+                    required
+                />
+            </fieldset>
 
-            <label class="signin-form__label" for="password">
-                <input class="signin-form__input" type="password" v-model="password" :placeholder="[[$t('signin.form.password')]]" required />
-            </label>
+            <p
+                :class="[{ 'text--error': error }]"
+                v-if="error"
+                v-text="$t('error.' + error + '')"
+            ></p>
 
-            <button class="signin-form__button" type="submit">
-                {{ $t('signin.form.submit') }}
-            </button>
+            <router-link
+                :to="'/recovery'"
+                v-text="$t('views.recovery.title')"
+            />
         </form>
+
+        <button
+            class="button button-default"
+            type="submit"
+            :disabled="error"
+            v-on:click="sendRequest"
+            v-text="$t('views.signin.submit')"
+        />
     </section>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
     data() {
         return {
-            email: '',
-            password: '',
+            form: {
+                email: '',
+                password: '',
+            },
         }
     },
+
     methods: {
-        signin: function() {
-            let email = this.email
-            let password = this.password
-            this.$store.dispatch('signin', { email, password }).then(() => this.$router.push('/account'))
-            // .catch(err => console.log(err))
+        ...mapActions('Session', ['session']),
+        async sendRequest() {
+            await this.session(this.form)
         },
+    },
+
+    computed: {
+        ...mapGetters('Session', ['responseError']),
+        error: self => (self.responseError ? self.responseError : false),
     },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

@@ -1,64 +1,71 @@
 <template>
-    <section class="transactions">
-        <h2>{{ $t('transactions.title') }}</h2>
+    <div>
+        <heading />
 
-        <article>
-            <p>
-                {{ $t('transactions.description') }}: №
-                <b>{{ cards.card_number }}</b>
-            </p>
-        </article>
+        <!--  -->
+        <table class="grid__i">
+            <thead>
+                <tr>
+                    <th v-text="$t('views.transactions.payment')" />
 
-        <div class="transactions__table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>{{ $t('transactions.payment') }}</th>
-                        <th>{{ $t('transactions.amount') }}</th>
-                        <th>{{ $t('transactions.period') }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(item, index) in transactions" :key="index">
-                        <td data-label="Payment">{{ item.description }}</td>
-                        <td data-label="Amount">{{ item.amount }}</td>
-                        <td data-label="Period">{{ item.processed_at }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+                    <th v-text="$t('views.transactions.amount')" />
+
+                    <th v-text="$t('views.transactions.date')" />
+                </tr>
+            </thead>
+
+            <tbody v-if="transactions">
+                <tr v-for="(item, index) in transactions" :key="index">
+                    <td
+                        :data-label="$t('views.transactions.payment')"
+                        v-text="item.description.replace(/;|\SUCC/g, ' ')"
+                    />
+                    <td
+                        :data-label="$t('views.transactions.amount')"
+                        v-text="item.amount"
+                    />
+                    <td
+                        :data-label="$t('views.transactions.date')"
+                        v-text="formatDate(item.processed_at)"
+                    />
+                </tr>
+            </tbody>
+
+            <tbody v-else>
+                <tr>
+                    <td v-text="$t(`views.transactions.empty`)" />
+                    <td />
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
+
 export default {
-    data() {
-        return {}
-    },
-    computed: {
-        ...mapState({
-            cards: state => state.cards || false,
-            transactions: state => state.transactions,
-        }),
-    },
     methods: {
-        ...mapActions(['getCards', 'getTransactions']),
-        cardData() {
-            // return the Promise from the action
-            this.getCards({ self: this })
-        },
-        transactionsData() {
-            this.getTransactions()
+        formatDate(date) {
+            var d = date
+                .slice(0, 10)
+                .split('-')
+                .reverse()
+                .join('.')
+
+            var t = date.slice(11, -5)
+
+            return d + ' ' + t
         },
     },
-    async mounted() {
-        // If we didn't already do it on the server we fetch the item (will first show the loading text)
-        await this.cardData()
-        await this.transactionsData()
+
+    computed: {
+        ...mapGetters({
+            transactions: 'Data/transactionsData',
+        }),
     },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

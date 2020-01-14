@@ -1,0 +1,13 @@
+.settings {
+    .grid {
+        &__i {
+            @extend .card;
+
+            padding: 3em;
+
+            @include breakpoints(phone) {
+                padding: 2em;
+            }
+        }
+    }
+}

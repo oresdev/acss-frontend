@@ -1,0 +1,285 @@
+/* ----------------------------------------------------------------------------------------------------
+- IE8: If a text input doesn't have padding on all sides or none the text won't be centered.
+- The default border sizes on text inputs in all UAs seem to be slightly different. You're better off using custom borders.
+----------------------------------------------------------------------------------------------------*/
+form {
+    p {
+        max-width: 580px;
+    }
+}
+fieldset {
+    margin: 1em 0;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    background: none;
+
+    color: $color--text;
+
+    /* Browsers have different default form fonts */
+    @extend p;
+}
+
+/* Remove the stupid outer glow in Webkit */
+input:focus {
+    outline: 0;
+}
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type='reset'],
+input[type='button'],
+input[type='submit'],
+input[type='checkbox'],
+input[type='radio'],
+select {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Text Inputs
+
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='range'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='time'],
+input[type='url'],
+input[type='week'] {
+}
+
+-----------------------------------------------*/
+label {
+    color: $color--text-muted;
+
+    /* Browsers have different default form fonts */
+    @extend p;
+
+    img {
+        margin: 0.5em 0 0;
+        max-width: 420px;
+    }
+    @include breakpoints(phone) {
+        margin: 0 0 2em;
+    }
+}
+
+.label__tumbler {
+    margin: 1em 0 0;
+}
+.label__link {
+    display: inline-block;
+    margin: 1em 0 0;
+    color: $color--text;
+    cursor: pointer;
+
+    &:hover {
+        opacity: $template--opacity;
+    }
+}
+
+label {
+    button {
+        margin: 1.2em 0 0 !important;
+    }
+}
+
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='text'] {
+    border-bottom: 1px solid hsla(207, 8%, 27%, 0.3);
+    border-radius: 0;
+
+    display: block;
+
+    margin: 0 0 0.5em;
+    max-width: 320px !important;
+    // padding: 0.2em 0;
+
+    @include size(2em, 100%);
+
+    @include breakpoints(phone) {
+        margin: 1em 0;
+    }
+}
+/* Button Controls
+-----------------------------------------------*/
+
+input[type='checkbox'],
+input[type='radio'] {
+    width: 13px;
+    height: 13px;
+}
+
+/* File Uploads
+-----------------------------------------------*/
+
+input[type='file'] {
+    display: none;
+}
+
+/* Search Input
+-----------------------------------------------*/
+
+/* Make webkit render the search input like a normal text field */
+input[type='search'] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+}
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration {
+    display: none;
+}
+
+/* Buttons
+-----------------------------------------------*/
+
+button,
+input[type='reset'],
+input[type='button'],
+input[type='submit'] {
+    /* Fix IE7 display bug */
+    overflow: visible;
+    width: auto;
+}
+
+/* IE8 and FF freak out if this rule is within another selector */
+::-webkit-file-upload-button {
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+/* Textarea
+-----------------------------------------------*/
+
+textarea {
+    /* Move the label to the top */
+    vertical-align: top;
+
+    /* Turn off scroll bars in IE unless needed */
+    overflow: auto;
+}
+
+/* Selects
+-----------------------------------------------*/
+
+select {
+}
+
+select[multiple] {
+    /* Move the label to the top */
+    vertical-align: top;
+}
+
+.select {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    height: 29px;
+    line-height: 26px;
+    border-bottom: 1px solid rgba(63, 69, 74, 0.3);
+    border-radius: 0;
+    display: block;
+    margin: 0 0 0.5em;
+    max-width: 320px !important;
+
+    &--selected {
+        color: hsla(0, 0%, 95%, 0.6);
+        cursor: pointer;
+        user-select: none;
+
+        &:after {
+            position: absolute;
+            content: '';
+            top: 9px;
+            right: 0px;
+            width: 0;
+            height: 0;
+            border: 4px solid transparent;
+            border-color: hsla(0, 0%, 95%, 0.6) transparent transparent
+                transparent;
+            box-shadow: none;
+        }
+        &:hover {
+            &:after {
+                border-color: rgba(63, 69, 74, 0.3) transparent transparent
+                    transparent !important;
+            }
+        }
+    }
+
+    &--hide {
+        display: none;
+    }
+
+    &__items {
+        color: hsla(0, 0%, 95%, 0.6);
+        overflow: hidden;
+        position: absolute;
+        background-color: hsl(221.1, 20%, 18.2%);
+        background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.5' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+        top: 29px;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        border: 1px solid rgba(63, 69, 74, 0.3);
+        border-top: none;
+    }
+
+    &__item {
+        border-bottom: 1px solid rgba(63, 69, 74, 0.3);
+        color: hsla(0, 0%, 95%, 0.6);
+        padding: 9px 2em 3px;
+        cursor: pointer;
+        user-select: none;
+
+        &:first-child {
+            color: $color--text-muted !important;
+            cursor: default;
+            &:hover {
+                background-color: transparent;
+            }
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+        &:hover {
+            background-color: #1b1f28;
+        }
+    }
+}

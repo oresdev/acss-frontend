@@ -1,0 +1,39 @@
+.main {
+    margin: 6em 1em;
+
+    .heading {
+        margin: 0 0 2em;
+        max-width: 720px;
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: $color--brand;
+        }
+        h2 {
+            margin: 0 0 0.5em;
+        }
+    }
+
+    .container {
+        margin: $template--gap 0;
+
+        position: relative;
+
+        &__title {
+            margin: 2em 0 1em;
+        }
+        &__subtitle {
+            max-width: 720px;
+        }
+    }
+    .group {
+        display: flex;
+        @include absolute(top 2px right 0);
+
+        figure {
+            margin: 0 0 0 1em;
+        }
+    }
+}

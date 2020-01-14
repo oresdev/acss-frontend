@@ -1,0 +1,9 @@
+.table {
+    @extend .card;
+}
+
+.limit {
+    p {
+        max-width: 720px;
+    }
+}

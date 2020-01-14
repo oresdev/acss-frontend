@@ -1,28 +1,24 @@
 import Vue from 'vue'
-import App from './App.vue'
-import axios from 'axios'
+
+import app from './router/views/app'
+
+import './common/components'
+
 import router from './router'
+
 import store from './store'
 
-// https://github.com/fengyuanchen/vue-qrcode
-import VueQrcode from '@chenfengyuan/vue-qrcode'
-
-Vue.component(VueQrcode.name, VueQrcode)
-
-import i18n from './i18n'
-
-Vue.prototype.$http = axios
-
-const token = localStorage.getItem('authentication_token')
-
-if (token) {
-    Vue.prototype.$http.defaults.headers.common['Authorization'] = token
-}
+import i18n from './common/i18n'
 
 // https://vuejs-tips.github.io/vue-the-mask/
 import VueTheMask from 'vue-the-mask'
 
 Vue.use(VueTheMask)
+
+// https://github.com/fengyuanchen/vue-qrcode
+import VueQrcode from '@chenfengyuan/vue-qrcode'
+
+Vue.component(VueQrcode.name, VueQrcode)
 
 Vue.config.productionTip = false
 
@@ -30,5 +26,5 @@ new Vue({
     router,
     store,
     i18n,
-    render: h => h(App),
+    render: h => h(app),
 }).$mount('#app')

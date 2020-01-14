@@ -1,0 +1,60 @@
+.grid {
+    display: grid;
+    grid-gap: $template--gap;
+
+    height: auto;
+
+    position: relative;
+
+    width: 100%;
+
+    &__i {
+        @extend .card;
+
+        position: relative;
+    }
+}
+
+.col {
+    grid-template-columns: repeat(1, 1fr);
+
+    &__2 {
+        grid-template-columns: repeat(2, 1fr);
+
+        @include breakpoints(phone) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        &--push {
+            grid-template-columns: 1fr 400px;
+
+            @include breakpoints(tablet) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+
+    &__3 {
+        grid-template-columns: repeat(3, 1fr);
+
+        @include breakpoints(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include breakpoints(phone) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &__4 {
+        grid-template-columns: repeat(4, 1fr);
+
+        @include breakpoints(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include breakpoints(phone) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

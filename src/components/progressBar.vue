@@ -1,38 +1,34 @@
 <template>
-    <ul class="process">
-        <li class="process__item" :style="processBar">
-            {{ balance + '$' }}
-        </li>
-    </ul>
+    <div class="progress">
+        <ul class="progress-amount">
+            <li class="progress-amount__cur" v-text="`$ ` + current" />
+            <li class="progress-amount__max" v-text="`$ ` + max" />
+        </ul>
+
+        <div class="progress-bar">
+            <div class="progress-bar__line" :style="line"></div>
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: '',
-    data() {
-        return {}
-    },
     props: {
-        balance: [String, Number],
-    },
-    computed: {
-        processBar: function() {
-            var width = this.balance
-
-            if (width > 11000) {
-                return {
-                    background: 'hsla(0, 85%, 46%, 0.361)',
-                    color: 'hsl(0, 0%, 93%)',
-                    width: width / 130 + '%',
-                }
-            }
-            return {
-                width: width / 130 + '%',
-            }
+        current: {
+            type: [String, Number],
+            default: 0,
         },
+        max: {
+            type: [String, Number],
+            default: 0,
+        },
+    },
+
+    computed: {
+        line: self => 'width:' + self.current / (self.max * 0.01) + '%',
     },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

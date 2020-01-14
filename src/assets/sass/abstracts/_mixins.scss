@@ -1,122 +1,248 @@
 // -----------------------------------------------------------------------------
-// This file contains all application-wide Sass mixins.
+// This file contains all application-wide Sass mixins https://github.com/Simonwep/sassyfication.
 // -----------------------------------------------------------------------------
 
+// Basic template breakpoints
+
+@mixin breakpoints($size) {
+    @if $size == phone {
+        @media (max-width: 608px) {
+            @content;
+        }
+    } @else if $size == tablet {
+        @media (max-width: 920px) {
+            @content;
+        }
+    } @else if $size == desktop {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    } @else if $size == retina {
+        @media (min-width: 1800px) {
+            @content;
+        }
+    }
+}
+
 @mixin _apply-props($args, $props...) {
-   @for $i from 1 through length($args) {
-      $val: nth($args, $i);
+    @for $i from 1 through length($args) {
+        $val: nth($args, $i);
 
-      @if $val != null {
-         #{nth($props, $i)}: $val;
-      }
-   }
+        @if $val != null {
+            #{nth($props, $i)}: $val;
+        }
+    }
 }
 
-@mixin flex($args...) {
-   @include _apply-props(
-      $args,
-      flex-direction,
-      align-items,
-      justify-content,
-      flex-wrap
-   );
-   display: flex;
-}
-
+// position: position(top, right, bottom, left)
 @mixin position($position, $args) {
-   @each $o in top right bottom left {
-      $i: index($args, $o);
-      @if $i and
-         $i +
-         1 <=
-         length($args) and
-         type-of(nth($args, $i + 1)) ==
-         number
-      {
-         #{$o}: nth($args, $i + 1);
-      }
-   }
-   position: $position;
+    @each $o in top right bottom left {
+        $i: index($args, $o);
+        @if $i and
+            $i +
+            1 <=
+            length($args) and
+            type-of(nth($args, $i + 1)) ==
+            number
+        {
+            #{$o}: nth($args, $i + 1);
+        }
+    }
+    position: $position;
 }
 
 // Positioning helpers
 @mixin absolute($args: '') {
-   @include position(absolute, $args);
+    @include position(absolute, $args);
 }
 
 @mixin fixed($args: '') {
-   @include position(fixed, $args);
+    @include position(fixed, $args);
 }
 
 @mixin relative($args: '') {
-   @include position(relative, $args);
+    @include position(relative, $args);
 }
 
-/*
----
-Sass mixin for responsive margins and paddings
+// width(height, min-width, max-width)
+@mixin width($args...) {
+    @include _apply-props($args, width, min-width, max-width);
+}
 
-Play around and add some properties.
-Example: @include responsive-spacing(margin, top bottom);
----
- */
+// fixed-width(width)
+@mixin fixed-width($base) {
+    @include width($base, $base, $base);
+}
 
-@mixin responsive-spacing($spacingType, $properties: top right bottom left) {
-   // Error handling
-   @if (($spacingType == margin) or ($spacingType == padding)) {
-      // Comma separated list with media features and related spacing width (use your own variables here)
-      $responsiveSpacesList: ('(max-width: 598px)', 16px),
-         ('(min-width: 599px) and (max-width: 840px)', 20px),
-         ('(min-width: 841px)', 20px);
+// height(height, min-height, max-height)
+@mixin height($args...) {
+    @include _apply-props($args, height, min-height, max-height);
+}
 
-      // Loop through each item of $responsiveSpacesList
-      @each $mediaFeature, $spacingValue in $responsiveSpacesList {
-         // Set media query and trim surrounding brackets
-         @media screen and (str-slice($mediaFeature, 2, -2)) {
-            // Space separated list of possible direction arguments
-            $directions: top right bottom left;
+// fixed-height(height)
+@mixin fixed-height($base) {
+    @include height($base, $base, $base);
+}
 
-            // Loop through each item of $directions
-            @each $direction in $directions {
-               // Return index number when a direction was found in properties
-               $i: index($properties, $direction);
+// size(width: auto, height: width)
+@mixin size($height: auto, $width: $height) {
+    height: $height;
+    width: $width;
+}
 
-               // If index is given, set css property and value
-               @if $i {
-                  #{$spacingType}-#{$direction}: $spacingValue;
-               }
+// min-size(width: auto, height: width)
+@mixin min-size($height: auto, $width: $height) {
+    min-height: $height;
+    min-width: $width;
+}
+
+// max-size(width: auto, height: width)
+@mixin max-size($height: auto, $width: $height) {
+    max-height: $height;
+    max-width: $width;
+}
+
+// fixed-height(width: auto, height: width)
+@mixin fixed-size($height: auto, $width: $height) {
+    @include fixed-height($height);
+    @include fixed-width($height);
+}
+
+// pseudo(position: absolute, content: '')
+@mixin pseudo($position: absolute, $content: '', $position...) {
+    @include _apply-props(($position, $content), position, content);
+}
+
+// font(font-size, line-height, font-weight)
+@mixin font($args...) {
+    @include _apply-props($args, font-size, line-height, font-weight);
+}
+
+// whiteSpaceOverflow(white-space: nowrap, overflow: hidden, text-overflow: ellipsis)
+@mixin white-space-overflow(
+    $white-space: nowrap,
+    $overflow: hidden,
+    $text-overflow: ellipsis
+) {
+    @include _apply-props(
+        ($white-space, $overflow, $text-overflow),
+        white-space,
+        overflow,
+        text-overflow
+    );
+}
+
+// stroke(stroke, stroke-width, stroke-linecap, stroke-dasharray, stroke-dashoffset)
+@mixin stroke($args...) {
+    @include _apply-props(
+        $args,
+        stroke,
+        stroke-width,
+        stroke-linecap,
+        stroke-dasharray,
+        stroke-dashoffset
+    );
+}
+
+// flex(flex-direction, align-items, justify-content, flex-wrap);
+@mixin flex($args...) {
+    @include _apply-props(
+        $args,
+        flex-direction,
+        align-items,
+        justify-content,
+        flex-wrap
+    );
+    display: flex;
+}
+
+// inline-flex(flex-direction, align-items, justify-content, flex-wrap);
+@mixin inline-flex($args...) {
+    @include _apply-props(
+        $args,
+        flex-direction,
+        align-items,
+        justify-content,
+        flex-wrap
+    );
+    display: inline-flex;
+}
+
+// flex-self(align-self, justify-self)
+@mixin flex-self($align-self: center, $justify-self: $align-self) {
+    @include _apply-props(
+        ($align-self, $justify-self),
+        align-self,
+        justify-self
+    );
+}
+
+// animate(props) {timeline}
+@mixin animate($props: '') {
+    $animation-name: 'a' + random(100000);
+
+    @keyframes #{$animation-name} {
+        @content;
+    }
+
+    animation: #{$animation-name} #{$props};
+}
+
+// Alternative to flex-gap (see https://caniuse.com/#feat=flexbox-gap)
+// margin-between-h(margin)
+@mixin margin-between-h($margin) {
+    &:not(:first-child):not(:last-child) {
+        margin-left: $margin;
+        margin-right: $margin;
+    }
+
+    &:first-child:not(:last-child) {
+        margin-right: $margin;
+    }
+
+    &:last-child:not(:first-child) {
+        margin-left: $margin;
+    }
+}
+
+// margin-between-v(margin)
+@mixin margin-between-v($margin) {
+    &:not(:first-child):not(:last-child) {
+        margin-bottom: $margin;
+        margin-top: $margin;
+    }
+
+    &:first-child:not(:last-child) {
+        margin-bottom: $margin;
+    }
+
+    &:last-child:not(:first-child) {
+        margin-top: $margin;
+    }
+}
+
+// Sequential animation delay based on childcount and a multiplier
+@mixin sequential-animation-delay($child-count, $multiplier, $base: 0) {
+    @for $i from 0 through $child-count {
+        &:nth-child(#{$i}) {
+            animation-delay: #{($i - 1) * $multiplier + $base};
+        }
+    }
+}
+
+// Order items easier
+@mixin order($list) {
+    @if type-of($list) == map {
+        @each $selector, $order in $list {
+            #{$selector} {
+                order: $order;
             }
-         }
-      }
-   } @else {
-      @error "Invalid spacing type. Please use 'margin' or 'padding'";
-   }
-}
-
-.responsive__margin {
-   @include responsive-spacing(margin);
-}
-
-.responsive__padding {
-   @include responsive-spacing(padding);
-}
-
-@mixin breakpoints($size) {
-   @if $size == phone {
-      @media (max-width: 599px) {
-         @content;
-      }
-   } @else if $size == tablet {
-      @media (max-width: 840px) {
-         @content;
-      }
-   } @else if $size == desktop {
-      @media (max-width: 1280px) {
-         @content;
-      }
-   } @else if $size == retina {
-      @media (min-width: 1800px) {
-         @content;
-      }
-   }
+        }
+    } @else if type-of($list) == list {
+        @for $i from 1 through length($list) {
+            #{nth($list, $i)} {
+                order: $i;
+            }
+        }
+    }
 }

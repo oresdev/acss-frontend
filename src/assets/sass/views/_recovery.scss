@@ -1,0 +1,17 @@
+.recovery {
+    max-width: 720px;
+
+    @extend .card;
+
+    a {
+        color: $color--text-muted;
+
+        @include breakpoints(phone) {
+            @include font(11px, 21px);
+        }
+
+        &:hover {
+            color: $color--text;
+        }
+    }
+}
