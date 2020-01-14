@@ -1,5 +1,8 @@
 <p align="center">
-  <img width="320" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDcwMCI+ICA8ZGVmcy8+ICA8cGF0aCBmaWxsPSIjODU3YTYwIiBkPSJNMjMyLjEgNTY4LjhoMTI0LjZsMjEwLTMzNS4zLTYxLjUtMTAyLjItMjczLjEgNDM3LjV6TTU5MyAyNzcuM0w0NzQuOSA0NjYuNmgxMTUuOGw2Ny4xIDEwMi4ySDc2OEw1OTMgMjc3LjN6Ii8+PC9zdmc+">
+  <br>
+  <img width="400" src="./src/assets/images/logo.svg" alt="logo of vue-awesome repository">
+  <br>
+  <br>
 </p>
 
 
