@@ -30,4 +30,4 @@
 
 ## 浏览器支持
 
-现代浏览器和Internet Explorer 10+.
+现代浏览器和Internet Explorer 10+。
