@@ -15,6 +15,7 @@ import tether from './views/wallets/tether'
 import acss from './views/wallets/acss'
 import kyc from './views/kyc'
 import transactions from './views/transactions'
+import transfer from './views/transfer'
 import _404 from './views/_404'
 
 Vue.use(VueRouter)
@@ -109,6 +110,14 @@ const router = new VueRouter({
             path: '/transactions',
             name: 'transactions',
             component: transactions,
+            meta: {
+                private: true,
+            },
+        },
+        {
+            path: '/transfer',
+            name: 'transfer',
+            component: transfer,
             meta: {
                 private: true,
             },

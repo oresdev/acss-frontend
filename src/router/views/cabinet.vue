@@ -37,6 +37,14 @@
             />
         </grid>
 
+        <router-link
+            tag="button"
+            type="button"
+            class="button button-default"
+            :to="'/transfer'"
+            v-text="$t(`views.transfer.link`)"
+        />
+
         <!--  -->
         <!-- <button
             type="button"

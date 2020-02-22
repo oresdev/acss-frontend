@@ -145,6 +145,46 @@ const actions = {
     },
 
     /**
+     * Transfer.
+     *
+     *
+     **/
+    async transfer({ commit, dispatch, rootState }, data) {
+        // Remove the token and remove axios header from /common/api
+        rootState.loader = true
+        axios.init()
+
+        const uuid = storage.get('session_data')
+            ? storage.get('session_data').card
+                ? storage.get('session_data').card.uuid
+                : false
+            : false
+
+        uuid
+            ? await axios
+                  .post(
+                      'https://cards.acss.tech/api/v1/cards/' +
+                          uuid +
+                          '/transfer',
+                      data
+                  )
+                  .then(response => {
+                      dispatch('Data/account', null, { root: true })
+
+                      commit('successTransfer')
+
+                      // Remove the token and remove axios header from /common/api
+                      rootState.loader = false
+                  })
+                  .catch(error => {
+                      commit('responseError', 'transfererr')
+                      // Remove the token and remove axios header from /common/api
+                      rootState.loader = false
+                  })
+            : ''
+    },
+
+    /**
      * Create card.
      *
      *
@@ -244,6 +284,11 @@ const mutations = {
         state.data = storage.get('session_data')
 
         router.push('/create')
+    },
+    successTransfer(state) {
+        state.data = storage.get('session_data')
+
+        router.push('/cabinet')
     },
 }
 
