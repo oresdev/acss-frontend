@@ -9,11 +9,13 @@ const state = {
     transactions: '',
     pin: '',
     error: '',
+    status: false,
 }
 
 const getters = {
     responseData: state => (state.data ? state.data : null),
     responseError: state => (state.error ? state.error : false),
+    responseStatus: state => (state.status ? state.status : false),
     transactionsData: state => (state.transactions ? state.transactions : null),
     pinData: state => (state.pin ? state.pin : null),
 }
@@ -287,8 +289,11 @@ const mutations = {
     },
     successTransfer(state) {
         state.data = storage.get('session_data')
-
-        router.push('/cabinet')
+        state.status = true
+        setTimeout(() => {
+            router.push('/cabinet')
+            state.status = false
+        }, 9000)
     },
 }
 

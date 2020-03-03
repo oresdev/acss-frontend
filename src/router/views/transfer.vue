@@ -1,5 +1,5 @@
 <template>
-    <div :class="[{ shake: error }, '']">
+    <div :class="[{ shake: error }, '']" v-if="!responseStatus">
         <heading />
 
         <!--  -->
@@ -7,27 +7,29 @@
             <form class="grid__i transfer" submit.prevent>
                 <p class="text--muted" v-text="$t(`views.transfer.details`)" />
                 <fieldset>
-                    <label :for="form.destination_number">
-                        {{ $t(`views.transfer.cardnumber`) }}
-                        <input
-                            type="text"
-                            :maxlength="16"
-                            v-mask="'################'"
-                            v-model="form.destination_number"
-                            required
-                        />
-                    </label>
+                    <grid :column="2">
+                        <label :for="form.destination_number">
+                            {{ $t(`views.transfer.cardnumber`) }}
+                            <input
+                                type="text"
+                                :maxlength="16"
+                                v-mask="'################'"
+                                v-model="form.destination_number"
+                                required
+                            />
+                        </label>
 
-                    <label :for="form.amount">
-                        {{ $t(`views.transfer.amount`) }}
-                        <input
-                            type="text"
-                            :maxlength="16"
-                            v-mask="'################'"
-                            v-model="form.amount"
-                            required
-                        />
-                    </label>
+                        <label :for="form.amount">
+                            {{ $t(`views.transfer.amount`) }}
+                            <input
+                                type="text"
+                                :maxlength="16"
+                                v-mask="'################'"
+                                v-model="form.amount"
+                                required
+                            />
+                        </label>
+                    </grid>
                 </fieldset>
 
                 <p
@@ -47,15 +49,25 @@
         <button
             class="button button-default"
             type="submit"
-            :disabled="error"
+            :disabled="error || loader"
             v-on:click="sendRequest"
             v-text="$t('views.transfer.submit')"
         />
     </div>
+
+    <div v-else>
+        <!--  -->
+        <grid>
+            <div class="grid__i">
+                <h2 v-text="$t('views.transfer.success')" />
+                <p v-html="$t('views.transfer.message')" />
+            </div>
+        </grid>
+    </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
     data() {
@@ -75,7 +87,10 @@ export default {
     },
 
     computed: {
-        ...mapGetters('Data', ['responseError']),
+        ...mapState({
+            loader: 'loader',
+        }),
+        ...mapGetters('Data', ['responseError', 'responseStatus']),
         error: self => (self.responseError ? self.responseError : false),
     },
 }
