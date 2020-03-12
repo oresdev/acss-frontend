@@ -1,0 +1,401 @@
+{
+    "views": {
+        "signin": {
+            "title": "Аuthorization",
+            "subtitle": "To protect your data do not transfer information to third parties and do not share your account password.",
+            "submit": "Enter"
+        },
+        "signup": {
+            "title": "Registration",
+            "terms": "Site Terms of Use",
+            "subtitle": "To protect your data do not transfer information to third parties and do not share your account password.",
+            "submit": "Confirm"
+        },
+        "recovery": {
+            "title": "Restore your Account ",
+            "terms": "Site Terms of Use",
+            "subtitle": "Welcome to account restoration. To protect you data do not transfer information to third parties and do not share your account password.",
+            "submit": "Confirm",
+            "success": "After data validation you'll get a verification e-mail with furhter instructions."
+        },
+        "create": {
+            "title": "Attach your card",
+            "subtitle": "To get into your personal account you must attach your bank card.",
+            "welcome": "Welcome",
+            "helper": "Enter your card number in the appropriate field. Make sure that the number is coorect, then click 'Confrim' button",
+            "details": "Enter your credit card number in the field below, and then you will be able to attach your card.",
+            "cardnumber": "Your card number",
+            "submit": "Atach"
+        },
+        "cabinet": {
+            "title": "Account",
+            "subtitle": "Welcome to your personal account. To get help use hints. Hint button is look like this Ⓘ and located in the upper left part of the block."
+        },
+        "balance": {
+            "title": "Balance",
+            "subtitle": "Available balance",
+            "helper": "It is your card balance, you can cash it in any ATM, or pay in cafe or restагrant",
+            "reference": "ID: ",
+            "pin": "Show PIN",
+            "inactive": "Not activated"
+        },
+        "wallets": {
+            "title": "Available wallets",
+            "helper": "You can use your cryptocurrency wallets only to top up your bank card balance. You can use cryptocurrency wallets only after your KYC is confirmed by the Bank. Do not top up your card until KYC is verified. After successful KYC verification you will be informed by email.",
+            "qr": "Get QR",
+            "acss": {
+                "title": "ACSS",
+                "subtitle": "Use deposits to keep your crypto savings. This section is  under development, but you can deposit funds already. The full functionality will be implemented soon."
+            },
+            "bitcoin": {
+                "title": "Bitcoin",
+                "subtitle": "Use deposits to keep your crypto savings. This section is  under development. The full functionality will be implemented soon."
+            },
+            "ethereum": {
+                "title": "Ethereum",
+                "subtitle": "Use deposits to keep your crypto savings. This section is  under development. The full functionality will be implemented soon."
+            },
+            "tether": {
+                "title": "Tether",
+                "subtitle": "Use deposits to keep your crypto savings This section is  under development. The full functionality will be implemented soon."
+            }
+        },
+        "subscription": {
+            "title": "Premium service",
+            "message": "We are pleased to invite you to become a member of our premium program. <br />To get information about premium account privileges and find out the conditions follow the link.",
+            "link": "Premium account"
+        },
+        "transactions": {
+            "title": "Transations",
+            "subtitle": "A list of transactions for the entire period of service of your plastic card.",
+            "helper": "If the transaction list is empty, try updating the the list by clicking left-top button. If you made a transaction and did not see it in the list,  wait from 2 to 15 minutes. It's the regular processing time of payment. You can also go to the detailed transaction history after it appears in this list.",
+            "payment": "Operator",
+            "amount": "Sum",
+            "date": "Date and time",
+            "last": "Last transactions",
+            "more": "Detailed list",
+            "empty": "Transations list is empty"
+        },
+        "transfer": {
+            "title": "Transfer from the card",
+            "subtitle": "At the moment, you can transfer funds from your card to the customer's card of this Bank, just specify the card number and the amount of transfer.",
+            "details": "Enter the beneficiary's card number and the transfer amount. Make sure the card number is correct.",
+            "cardnumber": "Card number",
+            "amount": "Amount of transfer",
+            "submit": "Transfer",
+            "link": "Transfer from the card",
+            "success": "Transfer is completed",
+            "message": "Funds will be deposited to the recipient 's card within a few minutes."
+        },
+        "limit": {
+            "title": "Deposit limit",
+            "subtitle": "The available limit is the amount of savings that you can safely keep and use in your account.",
+            "helper": "The limit is set by the Bank depending on the number of deposits and cash withdrawals, depending on the customer's need for constant use of funds."
+        },
+        "deposits": {
+            "title": "Deposit",
+            "details": "Available deposit amount in USD.",
+            "soon": "The sections is under development."
+        },
+        "kyc": {
+            "title": "KYC",
+            "subtitle": "KYC - Identification and establishing the identity of the counterparty prior to the opening of access to the various financial transactions. It is not recommended to top up your card prior to receiving  email notification that KYC has been successfully completed.",
+            "helper": {
+                "information": "The last name and first name must match the last name and first name on the ID card. Fill in this field in Chinese, without spaces. You can insert ready-made characters in this field.",
+                "contacts": "Please enter the region code: 2-digit mainland China code, 3-digit Hong Kong code",
+                "card": "An ID card is only required for Chinese and Hong Kong citizens. The attached document must be in good quality, not blurred, with visible edges. The document must have a horizontal orientation. The information on the document must be clearly visible. The size of the attached document must not exceed 768x1024 pixels.",
+                "documents": "The passport is used for all other countries except China and Hong Kong. The attached document must be in good quality, not blurred, with visible edges. The document must have a horizontal orientation. The information on the document must be clearly visible. The size of the attached document must not exceed 768x1024 pixels.",
+                "sign": "Your signature should be placed in the center of the A4 sheet . The attached document must be in good quality, not blurred, with visible edges. The document must have a vertical orientation. The information on the document must be clearly visible. The size of the attached document must not exceed 768x1024 pixels."
+            },
+            "code": {
+                "0": "null",
+                "1": "KYC in Progress",
+                "2": "For Bank’s Approval",
+                "3": "For Card Issuance",
+                "4": "Incomplete",
+                "5": "Denied",
+                "6": "Card on delivery",
+                "7": "Active",
+                "8": "Closed",
+                "9": "Pass the initial checking",
+                "10": "Ready for KYC2",
+                "11": "KYC2 in progress",
+                "12": "KYC2 failed"
+            },
+            "status": "KYC satus",
+            "information": "Basic information",
+            "secondary": "Additional information",
+            "contacts": "Contact information",
+            "address": "Registration address",
+            "card": "ID card (Passport)",
+            "documents": "Documents",
+            "sign": "Signature",
+            "submit": "Confirm"
+        },
+        "settings": {
+            "title": "Settings",
+            "subtitle": "Be careful when changing your account settings. Use only complex passwords as this will affect the security of your data and of your account. In order to protect your data, do not transfer information to third parties and do not share your old and new passwords from your personal account.",
+            "information": "Basic information",
+            "contacts": "Contact information",
+            "submit": "Confirm"
+        },
+        "logout": {
+            "title": "Exit"
+        },
+        "404": {
+            "title": "404",
+            "subtitle": "The page you are trying to find is not found."
+        }
+    },
+    "form": {
+        "firstname": "Name",
+        "firstname_local": "Surname and name ( As in the ID card )",
+        "email": "E-mail",
+        "lastname": "Surname",
+        "dateofbirth": "Date of birth",
+        "cell_number_country_code": "Country calling code",
+        "phone_country_code": "Country code",
+        "cell_number": "Phone number",
+        "phone": "Phone number",
+        "city": "City",
+        "address": "Address",
+        "postalcode": "Index",
+        "doc_pid_number": "ID-card number (Passport)",
+        "doc_pid_image": "Front size of the ID-card",
+        "doc_pidback_image": "The reverse side of the  ID card",
+        "doc_poa_image": "Front size of the passport (Selfie with the front side of the passport)",
+        "doc_sign_image": "Your signature",
+        "password": "Password",
+        "password_confirmation": "Confirm password",
+        "file": "Attach file",
+        "attach": "Attach",
+        "detach": "Detach",
+        "country": {
+            "title": "Country",
+            "array": [
+                {
+                    "name": "Choose from the list",
+                    "key": "null"
+                },
+                {
+                    "name": "Germany",
+                    "key": "DEU"
+                },
+                {
+                    "name": "Hong Kong",
+                    "key": "HKG"
+                },
+                {
+                    "name": "Indonesia",
+                    "key": "IDN"
+                },
+                {
+                    "name": "Cyprus",
+                    "key": "CYP"
+                },
+                {
+                    "name": "China",
+                    "key": "CHN"
+                },
+                {
+                    "name": "Malaysia",
+                    "key": "MYS"
+                },
+                {
+                    "name": "Russian Federation",
+                    "key": "RUS"
+                },
+                {
+                    "name": "Singapore",
+                    "key": "SGP"
+                }
+            ]
+        },
+        "nationality": {
+            "title": "Nationality",
+            "array": [
+                {
+                    "name": "Choose from the list",
+                    "key": "null"
+                },
+                {
+                    "name": "Germany",
+                    "key": "DEU"
+                },
+                {
+                    "name": "Hong Kong",
+                    "key": "HKG"
+                },
+                {
+                    "name": "Indonesia",
+                    "key": "IDN"
+                },
+                {
+                    "name": "Cyprus",
+                    "key": "CYP"
+                },
+                {
+                    "name": "China",
+                    "key": "CHN"
+                },
+                {
+                    "name": "Malaysia",
+                    "key": "MYS"
+                },
+                {
+                    "name": "Russian Federation",
+                    "key": "RUS"
+                },
+                {
+                    "name": "Singapore",
+                    "key": "SGP"
+                }
+            ]
+        },
+        "gender": {
+            "title": "Gender",
+            "array": [
+                {
+                    "name": "Choose from the list",
+                    "key": "null"
+                },
+                {
+                    "name": "Male",
+                    "key": "M"
+                },
+                {
+                    "name": "Femail",
+                    "key": "F"
+                }
+            ]
+        },
+        "occupation_code": {
+            "title": "Occupation",
+            "array": [
+                {
+                    "name": "Choose from the list",
+                    "key": "null"
+                },
+                {
+                    "name": "Civil servant",
+                    "key": "001"
+                },
+                {
+                    "name": "Financial Investment Broker / insurance broker",
+                    "key": "002"
+                },
+                {
+                    "name": "Realtor",
+                    "key": "003"
+                },
+                {
+                    "name": "Lawyer / counsel",
+                    "key": "004"
+                },
+                {
+                    "name": "Accountant / бaccountant financial Director",
+                    "key": "005"
+                },
+                {
+                    "name": "Doctor / medical assistant",
+                    "key": "006"
+                },
+                {
+                    "name": "Construction  / engineering personnel",
+                    "key": "007"
+                },
+                {
+                    "name": "Police officer",
+                    "key": "008"
+                },
+                {
+                    "name": "Cashier",
+                    "key": "009"
+                },
+                {
+                    "name": "Seller/ store Manager",
+                    "key": "010"
+                },
+                {
+                    "name": "Specialist",
+                    "key": "011"
+                },
+                {
+                    "name": "Social and Advisory services",
+                    "key": "012"
+                },
+                {
+                    "name": "Theacher",
+                    "key": "013"
+                },
+                {
+                    "name": "Chef",
+                    "key": "014"
+                },
+                {
+                    "name": "Designer",
+                    "key": "015"
+                },
+                {
+                    "name": "Guard",
+                    "key": "017"
+                },
+                {
+                    "name": "Director",
+                    "key": "018"
+                },
+                {
+                    "name": "Management / civilian personnel",
+                    "key": "019"
+                },
+                {
+                    "name": "blue collar / Working class",
+                    "key": "020"
+                },
+                {
+                    "name": "Service personnel",
+                    "key": "021"
+                },
+                {
+                    "name": "Housewife or housekeeper",
+                    "key": "022"
+                },
+                {
+                    "name": "Student",
+                    "key": "023"
+                },
+                {
+                    "name": "Unemployed",
+                    "key": "024"
+                },
+                {
+                    "name": "Employer / Entrepreneur",
+                    "key": "025"
+                },
+                {
+                    "name": "Pensioner",
+                    "key": "026"
+                }
+            ]
+        }
+    },
+    "error": {
+        "invalid": "The service uses your email address as a login, make sure that you use the correct email address and password.",
+        "submited": "The use of some features is requiered email confirmation.",
+        "taken": "Check information you entered, all fields must be filled in. If you forgot your password, use the password recovery page.",
+        "empty": "Check information you entered, all fields must be filled in.",
+        "exist": "Card is already attached or card number is incorrect.",
+        "transfererr": "The transfer is rejected. Perhaps the card is not from our system or you have not passed KYC verification.",
+        "500": "The service is temporarily unavailable. Please try again later."
+    },
+    "success": {
+        "session": {
+            "title": "Check e-mail",
+            "message": "Account activation instructions will be sent to the email you specified."
+        },
+        "recovery": {
+            "title": "Check e-mail",
+            "message": "After verification the temporary password will be sent to the email you specified. <br />For security reasons, after logging in, be sure to change the temporary password."
+        }
+    }
+}
