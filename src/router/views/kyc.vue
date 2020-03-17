@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="!success">
         <heading />
 
         <!--  -->
@@ -205,6 +205,16 @@
             />
         </form>
     </div>
+
+    <div v-else class="heading">
+        <!--  -->
+        <grid>
+            <div class="grid__i">
+                <h2 v-text="$t('success.kyc.title')" />
+                <p v-html="$t('success.kyc.message')" />
+            </div>
+        </grid>
+    </div>
 </template>
 
 <script>
@@ -265,6 +275,7 @@ export default {
         ...mapGetters({
             data: 'Profile/responseData',
             dataStatus: 'Profile/responseStatus',
+            success: 'Profile/responseSuccess',
         }),
     },
 

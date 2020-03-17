@@ -3,11 +3,13 @@ import axios from '../../common/api'
 const state = {
     data: {},
     status: [],
+    success: false,
 }
 
 const getters = {
     responseData: state => (state.data ? state.data : null),
     responseStatus: state => (state.status ? state.status : null),
+    responseSuccess: state => (state.success ? state.success : false),
 }
 
 const actions = {
@@ -20,13 +22,21 @@ const actions = {
                 commit('profileData', response.data.profile)
             })
     },
-    async updateProfile({ commit }, data) {
+    async updateProfile({ commit, rootState }, data) {
+        // Remove the token and remove axios header from /common/api
+        rootState.loader = true
+
         axios.init()
 
         await axios
             .post('https://cards.acss.tech/api/v1/profile.json', data)
             .then(response => {
                 commit('profileData', response.data.profile)
+
+                commit('profileSuccess')
+
+                // Remove the token and remove axios header from /common/api
+                rootState.loader = false
             })
     },
     async status({ commit, dispatch, rootState }) {
@@ -55,6 +65,13 @@ const mutations = {
     },
     profileStatus(state, data) {
         state.status = data
+    },
+    profileSuccess(state) {
+        state.success = true
+        setTimeout(() => {
+            // router.push('/')
+            state.success = false
+        }, 9000)
     },
 }
 

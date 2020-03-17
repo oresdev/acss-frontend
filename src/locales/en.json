@@ -393,6 +393,10 @@
             "title": "Check e-mail",
             "message": "Account activation instructions will be sent to the email you specified."
         },
+        "kyc": {
+            "title": "The form is successfully sent",
+            "message": "The main functionality of your account will be available after form validation."
+        },
         "recovery": {
             "title": "Check e-mail",
             "message": "After verification the temporary password will be sent to the email you specified. <br />For security reasons, after logging in, be sure to change the temporary password."
