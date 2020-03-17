@@ -31,12 +31,11 @@
                     :data="``"
                     v-model="data.firstname"
                 />
-
+                <!-- pinyin data removed -->
                 <form-input
                     :name="`firstname_local`"
                     :type="`text`"
                     :data="``"
-                    pinyin
                     :placeholder="`姓名名`"
                     v-model="data.firstname_local"
                 />
