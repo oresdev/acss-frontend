@@ -17,7 +17,7 @@ const actions = {
         axios.init()
 
         await axios
-            .get('https://cards.acss.tech/api/v1/profile.json')
+            .get('https://services.embily.com/api/v1/profile.json')
             .then(response => {
                 commit('profileData', response.data.profile)
             })
@@ -29,7 +29,7 @@ const actions = {
         axios.init()
 
         await axios
-            .post('https://cards.acss.tech/api/v1/profile.json', data)
+            .post('https://services.embily.com/api/v1/profile.json', data)
             .then(response => {
                 commit('profileData', response.data.profile)
 
@@ -45,7 +45,7 @@ const actions = {
         axios.init()
 
         await axios
-            .get('https://cards.acss.tech/api/v1/profile/statuses.json')
+            .get('https://services.embily.com/api/v1/profile/statuses.json')
             .then(response => {
                 commit('profileStatus', response.data.statuses)
 

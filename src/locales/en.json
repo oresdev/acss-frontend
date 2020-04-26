@@ -145,6 +145,10 @@
         "404": {
             "title": "404",
             "subtitle": "The page you are trying to find is not found."
+        },
+        "confirmcode": {
+            "title": "Paste confirmation code below",
+            "subtitle": "Account activation instructions will be sent to the email you specified."
         }
     },
     "form": {
@@ -377,7 +381,8 @@
                     "key": "026"
                 }
             ]
-        }
+        },
+        "confirmcode": "Confirmation code"
     },
     "error": {
         "invalid": "The service uses your email address as a login, make sure that you use the correct email address and password.",
@@ -386,7 +391,8 @@
         "empty": "Check information you entered, all fields must be filled in.",
         "exist": "Card is already attached or card number is incorrect.",
         "transfererr": "The transfer is rejected. Perhaps the card is not from our system or you have not passed KYC verification.",
-        "500": "The service is temporarily unavailable. Please try again later."
+        "500": "The service is temporarily unavailable. Please try again later.",
+        "inccode": "Incorrect confirmation code"
     },
     "success": {
         "session": {

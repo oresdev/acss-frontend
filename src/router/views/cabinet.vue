@@ -55,7 +55,7 @@
 
         <!--  -->
         <grid
-            :column="4"
+            :column="3"
             :title="$t(`views.wallets.title`)"
             :helper="$t(`views.wallets.helper`)"
             update
@@ -75,19 +75,24 @@
                 "
             />
             <wallet
-                :title="`Tether`"
-                :slug="`wallets/tether`"
+                :title="`Usdt Omni`"
+                :slug="``"
                 :address="
                     data.user.status_code ? data.wallet.tether.address : null
                 "
             />
             <wallet
-                :title="`Acss`"
-                :slug="`wallets/acss`"
+                :title="`Usdt Erc20`"
+                :slug="``"
                 :address="
-                    data.user.status_code
-                        ? `Temporarily unavailable for card recharge`
-                        : null
+                    data.user.status_code ? data.wallet.tethereth.address : null
+                "
+            />
+            <wallet
+                :title="`Tron`"
+                :slug="``"
+                :address="
+                    data.user.status_code ? data.wallet.trx.address : null
                 "
             />
         </grid>

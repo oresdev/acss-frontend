@@ -37,14 +37,43 @@
         />
     </section>
 
-    <section v-else class="heading">
-        <!--  -->
-        <grid>
-            <div class="grid__i">
-                <h2 v-text="$t('success.session.title')" />
-                <p v-text="$t('success.session.message')" />
-            </div>
-        </grid>
+    <section v-else :class="[{ shake: error }, 'signup']">
+        <section class="heading">
+            <h1 v-html="$t('views.confirmcode.title')" />
+            <p class="text--muted" v-html="$t('views.confirmcode.subtitle')" />
+        </section>
+
+        <form submit.prevent>
+            <fieldset class="grid col">
+                <input
+                    type="hidden"
+                    v-model="form.email"
+                    :placeholder="$t('form.email')"
+                    required
+                />
+                <!--  -->
+                <input
+                    type="password"
+                    v-model="form.code"
+                    :placeholder="$t('form.confirmcode')"
+                    required
+                />
+            </fieldset>
+
+            <p
+                :class="[{ 'text--error': error }]"
+                v-if="error"
+                v-text="$t('error.' + error + '')"
+            ></p>
+        </form>
+
+        <button
+            class="button button-default"
+            type="submit"
+            :disabled="error"
+            v-on:click="sendCode"
+            v-text="$t('views.signup.submit')"
+        />
     </section>
 </template>
 
@@ -54,14 +83,25 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
     data() {
         return {
-            form: {},
+            form: { licence_key: 'cyprus007' },
         }
     },
 
     methods: {
-        ...mapActions('Session', ['sessionCreate']),
+        ...mapActions('Session', [
+            'sessionCreate',
+            'generateCode',
+            'sessionConfirm',
+        ]),
         async sendRequest() {
             await this.sessionCreate(this.form)
+            await this.generateCode({ email: this.form.email })
+        },
+        async sendCode() {
+            await this.sessionConfirm({
+                email: this.form.email,
+                code: this.form.code,
+            })
         },
     },
 

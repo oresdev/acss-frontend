@@ -25,7 +25,7 @@ const actions = {
         axios.init()
 
         await axios
-            .get('https://cards.acss.tech/api/v1/cards.json')
+            .get('https://services.embily.com/api/v1/cards.json')
             .then(response => {
                 const authenticate = storage.get('session_data')
                     ? storage.get('session_data').authenticate
@@ -52,7 +52,7 @@ const actions = {
 
     async wallet({ commit, dispatch }) {
         await axios
-            .get('https://cards.acss.tech/api/v1/users/me.json')
+            .get('https://services.embily.com/api/v1/users/me.json')
             .then(response => {
                 commit('walletData', response.data)
 
@@ -70,7 +70,7 @@ const actions = {
         uuid
             ? await axios
                   .get(
-                      'https://cards.acss.tech/api/v1/wallets/' +
+                      'https://services.embily.com/api/v1/wallets/' +
                           uuid +
                           '/transactions.json'
                   )
@@ -95,7 +95,7 @@ const actions = {
         uuid
             ? await axios
                   .get(
-                      'https://cards.acss.tech/api/v1/cards/' +
+                      'https://services.embily.com/api/v1/cards/' +
                           uuid +
                           '/pin.json'
                   )
@@ -116,7 +116,7 @@ const actions = {
         axios.init()
 
         await axios
-            .post('https://cards.acss.tech/api/v1/cards/attach.json', data)
+            .post('https://services.embily.com/api/v1/cards/attach.json', data)
             .then(response => {
                 commit('successAttached')
                 dispatch('Data/account', null, { root: true })
@@ -137,7 +137,7 @@ const actions = {
         axios.init()
 
         await axios
-            .post('https://cards.acss.tech/api/v1/cards/detach.json')
+            .post('https://services.embily.com/api/v1/cards/detach.json')
             .then(response => {
                 commit('successDetached')
 
@@ -157,17 +157,17 @@ const actions = {
         axios.init()
 
         const uuid = storage.get('session_data')
-            ? storage.get('session_data').card
-                ? storage.get('session_data').card.uuid
+            ? storage.get('session_data').wallet
+                ? storage.get('session_data').wallet.uuid
                 : false
             : false
 
         uuid
             ? await axios
                   .post(
-                      'https://cards.acss.tech/api/v1/cards/' +
+                      'https://services.embily.com/api/v1/wallets/' +
                           uuid +
-                          '/transfer',
+                          '/transactions',
                       data
                   )
                   .then(response => {
@@ -197,7 +197,7 @@ const actions = {
         axios.init()
 
         await axios
-            .post('https://cards.acss.tech/api/v1/users/me.json', data)
+            .post('https://services.embily.com/api/v1/users/me.json', data)
             .then(response => {
                 // Remove the token and remove axios header from /common/api
                 rootState.loader = false
@@ -234,8 +234,11 @@ const mutations = {
                       tether: {
                           address: data.usdt_address,
                       },
-                      acss: {
-                          address: data.acss_address,
+                      tethereth: {
+                          address: data.usdteth_address,
+                      },
+                      trx: {
+                          address: data.trx_address,
                       },
                   },
                   authenticate: true,

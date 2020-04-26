@@ -19,7 +19,7 @@ const actions = {
         // Remove the token and remove axios header from /common/api
         rootState.loader = true
         await axios
-            .post('https://cards.acss.tech/api/v1/users/sign_in.json', data)
+            .post('https://services.embily.com/api/v1/users/sign_in.json', data)
             .then(response => {
                 commit('sessionData', response.data)
 
@@ -31,6 +31,7 @@ const actions = {
             })
             .catch(error => {
                 commit('responseError', 'invalid')
+
                 // Remove the token and remove axios header from /common/api
                 rootState.loader = false
             })
@@ -45,8 +46,10 @@ const actions = {
         // Remove the token and remove axios header from /common/api
         rootState.loader = true
         await axios
-            .post('https://cards.acss.tech/api/v1/users/sign_up.json', data)
+            .post('https://services.embily.com/api/v1/users/sign_up.json', data)
             .then(response => {
+                response.data.user.errors ? error() : false
+
                 commit('sessionSuccess')
 
                 // Remove the token and remove axios header from /common/api
@@ -54,6 +57,46 @@ const actions = {
             })
             .catch(error => {
                 commit('responseError', 'taken')
+                // Remove the token and remove axios header from /common/api
+                rootState.loader = false
+            })
+    },
+
+    /**
+     * Generate code for new user.
+     *
+     *
+     **/
+    async generateCode({ commit }, data) {
+        await axios
+            .post(
+                'https://services.embily.com/api/v1/users/confirmations/code.json',
+                data
+            )
+            .then(response => {})
+            .catch(error => {})
+    },
+
+    /**
+     * Confirm new user.
+     *
+     *
+     **/
+    async sessionConfirm({ commit, rootState }, data) {
+        // Remove the token and remove axios header from /common/api
+        rootState.loader = true
+        await axios
+            .post('https://services.embily.com/api/v1/users/confirm.json', data)
+            .then(response => {
+                response.data.user.errors ? error() : false
+
+                commit('confirmSuccess')
+
+                // Remove the token and remove axios header from /common/api
+                rootState.loader = false
+            })
+            .catch(error => {
+                commit('responseError', 'inccode')
                 // Remove the token and remove axios header from /common/api
                 rootState.loader = false
             })
@@ -69,7 +112,7 @@ const actions = {
         rootState.loader = true
         await axios
             .post(
-                'https://cards.acss.tech/api/v1/users/temp_password.json',
+                'https://services.embily.com/api/v1/users/temp_password.json',
                 data
             )
             .then(response => {
@@ -91,7 +134,7 @@ const actions = {
         rootState.loader = true
 
         await axios
-            .delete('https://cards.acss.tech/api/v1/users/sign_out.json')
+            .delete('https://services.embily.com/api/v1/users/sign_out.json')
             .then(response => {
                 // Remove the token and remove axios header from /common/api
                 rootState.Data.data = null
@@ -139,9 +182,13 @@ const mutations = {
 
     sessionSuccess(state) {
         state.status = true
+    },
+
+    confirmSuccess(state) {
+        state.status = true
         setTimeout(() => {
             router.push('/')
-        }, 9000)
+        }, 6000)
     },
 }
 

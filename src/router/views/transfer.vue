@@ -8,13 +8,13 @@
                 <p class="text--muted" v-text="$t(`views.transfer.details`)" />
                 <fieldset>
                     <grid :column="2">
-                        <label :for="form.destination_number">
+                        <label :for="form.recipient_card_number">
                             {{ $t(`views.transfer.cardnumber`) }}
                             <input
                                 type="text"
                                 :maxlength="16"
                                 v-mask="'################'"
-                                v-model="form.destination_number"
+                                v-model="form.recipient_card_number"
                                 required
                             />
                         </label>
@@ -40,7 +40,7 @@
             </form>
 
             <visa
-                :number="form.destination_number"
+                :number="form.recipient_card_number"
                 :holder="``"
                 :expires="``"
             />
@@ -73,7 +73,7 @@ export default {
     data() {
         return {
             form: {
-                destination_number: '',
+                recipient_card_number: '',
                 amount: '',
             },
         }

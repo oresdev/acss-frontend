@@ -145,6 +145,10 @@
         "404": {
             "title": "404",
             "subtitle": "没有找到您需要的页面"
+        },
+        "confirmcode": {
+            "title": "Paste confirmation code below",
+            "subtitle": "Account activation instructions will be sent to the email you specified."
         }
     },
     "form": {
@@ -381,7 +385,8 @@
                     "key": "026"
                 }
             ]
-        }
+        },
+        "confirmcode": "Confirmation code"
     },
     "error": {
         "invalid": "该服务使用您的电子邮件地址作为登录，所以当您登录时，请确保您使用正确的电子邮件地址和密码。",
@@ -390,7 +395,8 @@
         "empty": "检查输入的数据，必须填写所有字段。",
         "exist": "已经绑卡或卡号输入错误。",
         "transfererr": "Перевод отклонен. Возможно, карта не из нашей системы или у вас не пройдена KYC-верификация.",
-        "500": "服务器暂时无法连接，请稍后再试。"
+        "500": "服务器暂时无法连接，请稍后再试。",
+        "inccode": "Incorrect confirmation code"
     },
     "success": {
         "session": {
